@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Visualization Techniques</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="Judul">Advanced Visualization Techniques</h1>
+        </div>
+<style>
+    
+body{
+    background-color: #fff;
+}
+.container{
+    background-color: #fff;
+    padding-top: 3cm;
+    padding-left: 4cm;
+    padding-right: 3cm;
+    padding-bottom: 3cm;
+    max-width: 100%;
+    display: contents;
+}
+
+.container .header{
+    color: black;
+}
+
+.Judul{
+    font-size: 28pt;
+    text-align: left;
+    font-weight: bolder;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-family: Calibri, Arial, sans-serif;
+    max-width: 100%;
+}
+
+.content-box{
+    max-width: 100%;
+    min-width: 50%;
+    border: 2px solid #4471C4;
+    background-color: #fff;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 12pt;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 10px;
+    text-align: justify;
+}
+
+.content-box h2{
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    max-width: 100%;
+}
+
+.content-box ul{
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    max-width: 100%;
+}
+
+.content-box ul li{
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+
+.no-bullets{
+    list-style-type: none;
+    padding-left: 0;
+    max-width: 100%;
+}
+
+.no-bullets ul{
+    padding-left: 30px; /* Menambahkan indentasi untuk daftar bersarang */
+    max-width: 85%;
+}
+
+.note-box{
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #000;
+    background-color: #CFE1F3; /* Warna latar belakang seperti catatan */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    font-family: Calibri, Arial, sans-serif;
+    position: relative;
+}
+
+.note-box h2{
+    margin-top: 0;
+    max-width: fit-content;
+    font-size: 26px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+}
+
+.note-box p{
+    margin: 0;
+    max-width: fit-content;
+    font-size: 18px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+}
+/* Style for h1 */
+h1{
+    font-size: 20pt; /* Ukuran font 20 */
+    font-weight: bolder;
+    font-family: Calibri, Arial, sans-serif;
+    color: #1f2855;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    text-align: justify;
+    max-width: 100%;
+}
+/* Style for h2 */
+h2{
+    font-size: 14pt; /* Ukuran font 18 */
+    font-weight: bolder;
+    font-family: Calibri, Arial, sans-serif;
+    margin-top: 15px;
+    margin-right: 10px;
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    text-align: justify;
+    max-width: 100%;
+}
+
+h3 {
+    font-size: 12pt;
+    font-weight: bold;
+    font-family: calibri, Arial, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    line-height: 1.5; /*Jarak spasi 1/5 */
+    text-align: justify;
+    max-width: 100%;
+
+}
+
+/* Style for p */
+p{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    margin-right: 10px;
+    max-width: 100%;
+}
+/* Style for ul and ol */
+ul, ol{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    max-width: 90vw;
+}
+/* Style for li */
+li{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    margin-right: 10px;
+    max-width: 100%;
+}
+
+.small-text{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: center;
+    font-size: 10pt;
+}
+
+.Tools{
+    max-width: 85%;
+    height: auto;
+    display: block;
+    margin-left: 30%;
+    margin-top: 15pt;
+    margin-bottom: 15pt;
+}
+
+.Tipe{
+    max-width: 85%;
+    height: auto;
+    display: block;
+    margin-left: 0%;
+    margin-top: 15pt;
+    margin-bottom: 15pt;
+}
+
+iframe{
+    max-width: 100%;
+    min-height:auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 10px;
+}
+th {
+    background-color: #2796a3;
+    color: white;
+    text-align: center;
+}
+tr:hover {
+    background-color: beige;
+}
+
+font {
+    max-width: 100%;
+}
+
+</style>
+
+<div class="content-box"> <!-- Berisi Poin-poin Konten-->
+    <h2>
+        <img src="https://drive.google.com/thumbnail?id=1OSwy6Vn5jv8ERj5uV-d5abA8LFGNXV9x" alt="Content Image" style="vertical-align: middle; margin-right: 10px; max-width: 40px; max-height: 40px; padding-top: 10px;">Content
+    </h2>
+    <ul class="no-bullets">
+        <a href="#memahami-tableau" target="_blank">Memahami Tableau lebih Dalam</a>
+        <ul class="no-bullets">
+            <li>
+                <a href="#meningkatkan-analisis" target="_blank">Meningkatkan Analisis dengan Fitur Tableau</a>
+            </li>
+            <li>
+                <a href="#fitur-fitur-utama" target="_blank">Fitur-Fitur Utama di Tableau</a>
+            </li>
+        </ul>
+        <a href="#memahami-tipe-data" target="_blank">Memahami Tipe Data pada Tableau</a>
+        <ul class="no-bullets">
+            <li>
+                <a href="#tipe-data-umum" target="_blank">Tipe Data Umum pada Tableau</a>
+            </li>
+        </ul>
+        <a href="#membuat-visualisasi" target="_blank">Membuat Visualisasi Data</a>
+        <ul class="no-bullets">
+            <li>
+                <a href="#menghubungkan-data" target="_blank">Menghubungkan Data ke Tableau</a>
+            </li>
+            <li>
+                <a href="#visualisasi-bar-chart" target="_blank">Membuat Visualisasi Bar Chart</a>
+            </li>
+            <li>
+                <a href="#stacked-bar" target="_blank">Membuat Stacked Bar Chart</a>
+            </li>
+            <li>
+                <a href="#visualisasi-pie-chart" target="_blank">Membuat Visualisasi Pie Chart</a>
+            </li>
+            <li>
+                <a href="#visualisasi-line-chart" target="_blank">Membuat Visualisasi Line Chart</a>
+            </li>
+        </ul>
+    </ul>
+
+</div>
+
+<div class="content-box">
+    <h1 id="memahami-tableau">Memahami Tableau lebih Dalam</h1>
+    <h2 id="meningkatkan-analisis">Meningkatkan Analisis dengan Fitur Tableau</h2>
+    <p>
+        Untuk merancang visualisasi yang <b>efektif</b> dan <b>estetis</b> dalam Tableau, penting untuk memiliki pemahaman yang mendalam tentang berbagai fiturnya. 
+        Fitur-fitur ini memungkinkan pengguna untuk mengolah data lebih efisien sebelum mengubahnya menjadi visualisasi yang menarik. 
+        Salah satu keunggulan utama dari Tableau adalah <b>fleksibilitasnya</b>, yang mencakup kemampuan untuk menyesuaikan grafik dan diagram serta melakukan manipulasi data yang akan ditampilkan secara visual. Tableau menawarkan beberapa fitur penting yang mendukung proses ini.
+    </p>
+    <h2 id="fitur-fitur-utama">Fitur-Fitur Utama di Tableau</h2>
+    <p>Beberapa fitur penting dalam Tableau yang perlu dipahami oleh pengguna meliputi:</p>
+    <ul>
+        <li><b>Marks Card</b></li>
+        <li><b>Filter</b></li>
+        <li><b>Hierarchy</b></li>
+        <li><b>Analytics</b></li>
+    </ul>
+
+    <p>
+        <div class="note-box"> <!-- Notes Box -->
+            <h2>
+                <img src="https://drive.google.com/thumbnail?id=1u0BdBLr-b-GNRs-OwQ11Ruv183nuTpvu" alt="Notes Image" style="vertical-align: middle; margin-right: 10px; max-width: 30px; max-height: 30px; padding-top: 5px;">Notes
+            </h2>
+            <p>
+                Pemahaman Mendalam tentang fitur-fitur ini akan meningkatkan kemampuan dalam membuat visualisasi yang lebih baik dan informatif.
+            </p>
+        </div>
+    </p>
+
+    <ol type="1">
+        <li><b>Fitur Marks Card Tableau</b></li>
+        <p>
+            Fitur <b>Marks Card</b> dalam Tableau mendukung pengguna dalam membangun grafik dan memberikan fleksibilitas untuk mengkustomisasi grafik yang telah dibuat. Marks Card mencakup beberapa sub-fitur:
+        </p>
+        <iframe src="https://drive.google.com/file/d/1uQ95TW7jQBFLS2l1ukSlFY7HY2Q7ESyo/preview" width="100%" height="300px" alt="Marks Card_1"></iframe>
+        <ol type="a">
+            <li><b>Tombol Warna (Color)</b></li>
+            <p>
+                Fitur <b>Color</b> berfungsi <b>memberikan warna</b> yang berbeda pada berbagai kategori dan ukuran data. Ini membantu pengguna mengidentifikasi pola dan perbedaan dalam data yang mungkin kompleks. 
+                Pengguna memiliki kebebasan dalam memilih warna yang sesuai dengan tema atau tujuan komunikasi. Fitur ini mencakup pengaturan untuk <b>kecerahan (Opacity)</b>, <b>garis tepi (Border)</b>, dan <b>penanda (Markers)</b>. 
+                Penggunaan kontras dengan latar belakang (Halo) berperan dalam meningkatkan visibilitas elemen data, terutama dalam konteks latar belakang yang rumit.
+            </p>
+                <iframe src="https://drive.google.com/file/d/1u_i66uB9tPDtSWI-CqZNvi97idY3WzOE/preview" width="100%" height="300px" alt="Marks Card_2"></iframe>
+
+            <li><b>Tombol Ukuran (Size)</b></li>
+            <p>
+                Fitur <b>Size</b> memungkinkan pengguna untuk memberikan dimensi tambahan pada visualisasi dengan <b>mengatur ukuran</b> elemen-elemen data. 
+                Fitur ini membantu dalam merangkum informasi secara efektif dan menyampaikan pesan yang lebih kuat melalui dimensi ukuran yang terlihat.
+            </p>
+                <iframe src="https://drive.google.com/file/d/1CS2MPtKBZ_1ppCeTWgEKsPz4Kt5ksOoa/preview" width="100%" height="300px" alt="Marks Card_3"></iframe>
+
+            <li><b>Tombol Label</b></li>
+            <p>
+                Fitur <b>Label</b> memberikan cara yang efektif untuk menyampaikan informasi langsung pada visualisasi. Dengan menggunakan label, pengguna dapat <b>menambahkan teks atau nilai</b> yang relevan pada elemen-elemen data di dalam grafik atau diagram. 
+                Ini membantu mengklarifikasi apa yang sedang ditampilkan dalam visualisasi dan memudahkan interpretasi.
+            </p>
+                <iframe src="https://drive.google.com/file/d/1a-Lrd8BlHx8adaCzUK16M0gChmd3QYV3/preview" width="100%" height="300px" alt="Marks Card_4"></iframe>
+
+            <li><b>Tooltip</b></li>
+            <p>
+                Fitur <b>Tooltip</b> menyediakan cara yang interaktif dan intuitif untuk memberikan informasi tambahan pada visualisasi. Ini memungkinkan pengguna untuk <b>mendapatkan wawasan lebih dalam tentang data tanpa mengganggu tampilan visual utama</b>. 
+                Dengan mengatur konten tooltips, pengguna dapat mengadaptasi pengalaman interaktif berdasarkan kebutuhan mereka.
+            </p>
+                <iframe src="https://drive.google.com/file/d/1dtZfGEuVjBWa4gliIF_hFHqb2yWTykFL/preview" width="100%" height="300px" alt="Marks Card_5"></iframe>
+
+            <li><b>Detail</b></li>
+            <p>
+                Fitur <b>Detail</b> adalah elemen interaktif yang memungkinkan pengguna untuk <b>mendapatkan informasi rinci</b> tentang suatu bagian dari visualisasi dengan lebih mendalam. 
+                Ketika pengguna mengklik tombol detail pada elemen data tertentu, tampilan akan berubah menjadi mode "detail" yang menyoroti data spesifik dan menyajikan konteks tambahan.
+            </p>
+                <iframe src="https://drive.google.com/file/d/1hAvE3rnDo9Hvi5iykg_i_-MABfn5DgWp/preview" width="100%" height="300px" alt="Marks Card_6"></iframe>
+
+        </ol>
+
+        <li><b>Fitur Filter pada Tableau</b></li>
+        <p>
+            Fitur <b>Filter</b> memberikan cara yang efektif untuk mengendalikan tampilan data pada visualisasi. Dengan fitur ini, pengguna dapat <b>mempersempit data yang ditampilkan dengan memilih kriteria tertentu</b>. 
+            Fitur Filter membantu <b>menyederhanakan tampilan visualisasi</b>, dan memungkinkan pengguna untuk <b>lebih mendalam dalam menganalisis bagian tertentu</b> dari data. 
+            Kemampuan interaktif dari fitur ini memungkinkan pengguna untuk dengan <b>cepat membandingkan data</b> dalam berbagai skenario.
+        </p>
+            <iframe src="https://drive.google.com/file/d/1bGCHhZgzZYaXoI8M7ljhD758vcSBMEPM/preview" width="100%" height="300px" alt="Fitur Filter"></iframe>
+        
+        <li><b>Fitur Hierarchy pada Tableau</b></li>
+        <p>
+            Fitur <b>Hierarchy</b> memungkinkan pengguna untuk <b>mengorganisir dan menyusun data</b> dalam struktur hierarkis yang lebih terstruktur. 
+            Dalam banyak dataset, terdapat relasi antara berbagai atribut atau dimensi yang dapat diartikan secara hierarkis, seperti tahun ke kuartal ke bulan atau negara ke kota ke cabang. 
+            Dengan fitur ini, pengguna dapat mengatur data ke dalam struktur berjenjang, yang membuatnya lebih mudah untuk menggali wawasan dari data dengan tingkat detail yang berbeda-beda. 
+            Fitur Hierarchy membantu pengguna dalam <b>menjelajahi data secara lebih terorganisir</b> dan <b>menyajikan informasi dengan cara yang lebih terstruktur dan kontekstual</b>.
+        </p>
+        <iframe src="https://drive.google.com/file/d/1Q5BTFEXfFbpfkUPjrUoOB8Uq-IJoYPnE/preview" width="100%" height="300px" alt="Hierarchy"></iframe>
+
+        <li><b>Fitur Analytics pada Tableau</b></li>
+        <p>
+            Fitur <b>Analytics</b> merupakan kumpulan alat analisis yang <b>memberikan dimensi tambahan</b> pada proses interpretasi dan penggalian wawasan dari data. 
+            Fitur ini melengkapi fitur visualisasi dengan alat-alat yang lebih mendalam untuk analisis data yang lebih rumit dan kompleks. 
+            Fitur Analytics memberikan pengguna berbagai kemampuan untuk <b>menerapkan metode analisis statistik, perhitungan matematika,</b> dan <b>teknik pemodelan prediktif</b> yang membantu dalam mengeksplorasi pertanyaan yang lebih dalam tentang data.
+        </p>
+        <iframe src="https://drive.google.com/file/d/13t-XcdBtkfzGKqCvnu_yT_gQEKwEcM6S/preview" width="100%" height="300px" alt="Hierarchy"></iframe>
+    </ol>
+
+    <p>Untuk memahami fitur-fitur utama dalam Tableau lebih dalam, pengguna dapat melihat video di bawah ini:</p>
+    <iframe src="https://drive.google.com/file/d/1o2906aGZ_SzjskYPL_TPWL3lCwZTCz0i/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+    <h1 id="memahami-tipe-data">Memahami Tipe Data pada Tableau</h1>
+    <p>
+        Tipe data mengacu pada karakteristik atau format yang menggambarkan jenis nilai atau informasi yang dapat disimpan dalam suatu variabel, kolom, atau bidang. Dalam Tableau, tipe data mengacu pada cara data dijalankan dan diolah oleh perangkat lunak untuk tujuan visualisasi dan analisis. 
+        Setiap kolom atau bagian dalam data yang dimasukkan ke dalam Tableau memiliki jenis data tertentu yang mempengaruhi cara data tersebut ditampilkan dan dianalisis dalam visualisasi.
+    </p>
+
+    <h2 id="tipe-data-umum">Tipe Data Umum pada Tableau</h2>
+
+    <table border="1", cellpadding="8", style="vertical-align: middle;">
+        <tr>
+            <th><b>Simbol</b></th>
+            <th><b>Tipe Data</b></th>
+        </tr>
+        <tr>
+            <td>
+                <iframe src="https://drive.google.com/file/d/1-DDG8XTz_6kQbcndLqXFrbdzzsISwlYv/preview" width="35" height="35" style="vertical-align: middle;" frameborder="0" alt="ikon"></iframe>
+            </td>
+            <td>Teks (string)</td>
+        </tr>
+        <tr>
+            <td>
+                <iframe src="https://drive.google.com/file/d/1QwGl2Y25mWFXChL9kyIjL6alC3WWfaCS/preview" width="35" height="35" style="vertical-align: middle;" frameborder="0" alt="ikon"></iframe>
+            </td>
+            <td>Tanggal</td>
+        </tr>
+        <tr>
+            <td>
+                <iframe src="https://drive.google.com/file/d/1xkAsogtHrQOUq9HFEuD_JcALP_wazYyi/preview" width="35" height="35" style="vertical-align: middle;" frameborder="0" alt="ikon"></iframe>
+            </td>
+            <td>Tanggal & Waktu</td>
+        </tr>
+        <tr>
+            <td>
+                <iframe src="https://drive.google.com/file/d/1hZF6w9E6KkW3iYHxhy3RbvhYXo2l1nSx/preview" width="35" height="35" style="vertical-align: middle;" frameborder="0" alt="ikon"></iframe>
+            </td>
+            <td>Numerik</td>
+        </tr>
+        <tr>
+            <td>
+                <iframe src="https://drive.google.com/file/d/1DqLuQ7InaLHa-RW-Ti0B7zogixTX3QLl/preview" width="35" height="35" style="vertical-align: middle;" frameborder="0" alt="ikon"></iframe>
+            </td>
+            <td>Boolean</td>
+        </tr>
+        <tr>
+            <td>
+                <iframe src="https://drive.google.com/file/d/13hI6s1hmxczfxoE5MmAadoxR656gXRDP/preview" width="35" height="35" style="vertical-align: middle;" frameborder="0" alt="ikon"></iframe>
+            </td>
+            <td>Geographic</td>
+        </tr>
+        <tr>
+            <td>
+                <iframe src="https://drive.google.com/file/d/1BAiUdxKlaUxDZZTM8h8mNPjGXi13BSZ3/preview" width="35" height="35" style="vertical-align: middle;" frameborder="0" alt="ikon"></iframe>
+            </td>
+            <td>Grup Klaster (digunakan pada <a href="https://help.tableau.com/current/pro/desktop/en-us/clustering.htm" target="_blank" style="color: blue;"><u>data</u></a>)</td>
+        </tr>
+    </table>
+
+    <ol type="1">
+        <li><b>Teks (String)</b></li>
+        <p>Tipe data <b>String</b> merujuk pada <b>data teks</b> atau <b>karakter</b>. 
+            Tipe data ini digunakan untuk menyimpan dan mewakili rangkaian karakter, seperti kata-kata, kalimat, atau teks bebas lainnya. 
+            <b>Contoh: "John Smith"</b> sebagai nama pelanggan, <b>"Sebuah laptop ringan dan kuat untuk kebutuhan komputasi sehari-hari"</b> sebagai deskripsi produk.
+        </p>
+        <li><b>Tanggal (Date)</b></li>
+        <p>
+            Tipe data <b>Tanggal (Date)</b> merujuk pada nilai yang hanya mencakup informasi <b>tanggal tanpa memasukkan komponen waktu</b>. 
+            Tipe data ini digunakan untuk mewakili tanggal tertentu dalam analisis data tanpa memperhatikan aspek waktu dalam detailnya. 
+            Contoh: Tanggal acara utama <b>10 September 2023</b>.
+        </p>
+        <li><b>Tanggal & Waktu (Date & Time)</b></li>
+        <p>
+            Tipe data <b>Tanggal & Waktu (Date & Time)</b> merujuk pada nilai yang mencakup informasi lengkap tentang <b>tanggal serta komponen waktu</b>. 
+            Penggunaan tipe data ini memungkinkan untuk merepresentasikan spesifik rentang waktu dengan presisi yang lebih tinggi. 
+            Contoh: Batas Akhir Pengerjaan <b>22 Juli 2023, 23:59:59</b>.
+        </p>
+        <li><b>Numeric (Numeric)</b></li>
+        <p>
+            Tipe data <b>Numerik (Numeric)</b> dalam Tableau mengacu pada nilai-nilai yang berhubungan dengan <b>angka dan operasi matematika</b>. 
+            Tipe data ini mencakup berbagai jenis angka, seperti <b>bilangan bulat (integer)</b> dan <b>bilangan desimal (floating-point)</b>, yang digunakan untuk melakukan perhitungan dan analisis numerik dalam visualisasi dan laporan. 
+            Contoh: <b>Penjualan, rata-rata, persentase pertumbuhan, atau kuantitas barang terjual</b>.
+        </p>
+        <li><b>Geografis (Geographic)</b></li>
+        <p>
+            Tipe data <b>Geografis (Geographic)</b> adalah jenis data yang digunakan untuk merepresentasikan <b>informasi spasial, seperti titik koordinat, poligon, atau garis lintang dan bujur</b>. 
+            Data ini memungkinkan pengguna untuk memvisualisasikan lokasi geografis secara interaktif, memetakan data, dan menganalisis pola berdasarkan dimensi geografis dalam visualisasi. 
+        </p>
+        <li><b>Grup Klaster (Cluster Group)</b></li>
+        <p>
+            Tipe data <b>Klaster (Cluster)</b> dalam analisis data mengacu pada <b>pengelompokan data serupa</b> ke dalam kelompok yang lebih besar, berdasarkan kesamaan atau pola tertentu. 
+            Tipe data klaster digunakan untuk mengidentifikasi dan menganalisis kelompok data yang memiliki karakteristik serupa, membantu pengguna dalam memahami pola dan relasi yang mungkin tidak terlihat pada data individual.
+        </p>
+        <li><b>Boolean</b></li>
+        <p>
+            Tipe data <b>Boolean</b> adalah jenis data yang <b>hanya memiliki dua nilai</b>, yaitu <b>"True" (benar) atau "False" (salah)</b>. 
+            Digunakan untuk merepresentasikan informasi biner seperti informasi gender seseorang (laki&minus;laki atau perempuan). Contoh: <b>Keanggotaan pelanggan (True jika anggota, False jika bukan)</b>.
+        </p>
+    </ol>
+
+    <h1 id="membuat-visualisasi">Membuat Visualisasi Data</h1>
+    <h2 id="menghubungkan-data">Menghubungkan Data ke Tableau</h2>
+    <p>
+        Sebelum memulai visualisasi data, unduh data source <b>Superstore</b> terlampir dan mengupload ke Google Drive pribadi yang akan digunakan di seluruh modul kali ini. 
+        Data Superstore tersedia dalam tiga worksheet berbeda, namun hanya worksheet "Order" yang akan digunakan untuk membangun visualisasi data pada modul kali ini.
+    </p>
+    <ol type="1">
+        <li><b>Buka Tableau</b>: Jalankan aplikasi Tableau Desktop.</li>
+        <li><b>Hubungkan ke Data</b>: Pilih "Connect to Data" di panel utama atau pilih <b>ikon koneksi data di bagian atas</b>.</li>
+        <li><b>Pilih Sumber Data</b>: Pilih "Google Drive" dari daftar sumber data yang tersedia.</li>
+        <li><b>Otorisasi Akun Google</b>: Anda akan diminta untuk menghubungkan akun Google Drive Anda dengan Tableau.</li>
+        <iframe src="https://drive.google.com/file/d/1Iyo9xvj3I8LptcFDzIseSzYJMpehunY1/preview" width="100%" height="300px" alt="Otorisasi Akun Google"></iframe>
+
+        <li><b>Pilih Worksheet</b>: Setelah berhasil terhubung, pilih worksheet "Order" dari file "Data Superstore". Setelah memilih worksheet "Orders", pindah ke tab "Sheet 1" untuk mulai membuat visualisasi data.</li>
+        <iframe src="https://drive.google.com/file/d/116Q5fZPbisIm7tj53_1hEHeoUnor96d5/preview" width="100%" height="300px" alt="Pilih Worksheet"></iframe>
+
+        <p>
+            Untuk panduan tentang cara menghubungkan data melalui Google Drive, pengguna dapat melihat video di bawah ini:
+        </p>
+        <iframe src="https://drive.google.com/file/d/1y6BMXxokBKtb4vWr9SUlDpn_2eG0nF7I/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+    </ol>
+
+    <h2 id="visualisasi-bar-chart">Membuat Visualisasi Bar Chart</h2>
+    <p>
+        Bar Chart berguna untuk menampilkan perbandingan data secara jelas. Berikut langkah-langkah untuk membangun barchart:
+    </p>
+    <ol type="1">
+        <li><b>Ganti Nama Sheet</b>: Ubah nama "Sheet 1" menjadi "Sum of Sales by Region".</li>
+        <li><b>Pilih Data</b>: Tarik "Region" dari panel "Tables" ke panel "Columns".</li>
+        <iframe src="https://drive.google.com/file/d/1hV7tw6br1DaE7S75bKluYPb-RlLAzBrB/preview" width="100%" height="300px" alt="Pilih Worksheet"></iframe>
+
+        <li><b>Tambahkan Metrik</b>: Tarik "Sales" dari panel "Tables" ke panel "Rows".</li>
+        <li><b>Tambahkan Label</b>: Tarik dan geser "Sales" ke panel "Marks", pilih ikon, dan pilih "Label".</li>
+        <iframe src="https://drive.google.com/file/d/1pIgrBmTxNen5pFFdseBHIfzcRXGPURqs/preview" width="100%" height="300px" alt="Tambahkan Label"></iframe>
+
+        <li>Untuk memperbarui visualisasi setelah data ter-update, pilih <b>"Orders"</b> kemudian pilih <b>"Refresh"</b>, maka visualisasi akan otomatis berubah.</li>
+        <iframe src="https://drive.google.com/file/d/1lrBMSREovQJJ_ue23QoWciy4EPBkYqZJ/preview" width="100%" height="300px" alt="Pilih Worksheet"></iframe>
+    </ol>
+
+    <p>
+        Untuk panduan membuat visualisasi menggunakan barchart, pengguna dapat melihat video di bawah ini:
+    </p>
+    <iframe src="https://drive.google.com/file/d/1f6ygFLdxx0jVvenE9aUo-JKPyLjv6YJ7/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+    <h2 id="stacked-bar">Membuat Stacked Bar Chart</h2>
+    <p>
+        Stacked Bar Chart digunakan untuk menunjukkan distribusi data dalam kategori yang berbeda dalam satu visualisasi. 
+        Langkah-langkah untuk membangun stackedbar adalah sebagai berikut:
+    </p>
+    <ol type="1">
+        <li><b>Gunakan Bar Chart yang Ada</b>: Gunakan bar chart yang telah dibuat sebelumnya.</li>
+        <li><b>Tambahkan Segmen</b>: Tarik "Segment" dari panel "Tables" ke panel "Marks".</li>
+        <li>
+            <b>Warna yang Membedakan</b>: Pilih ikon 
+            <iframe src="https://drive.google.com/file/d/1Md2PWmWa_NWzCMR-kj_D_IYc3UQwa4F1/preview" width="25" height="25" style="vertical-align: middle;" frameborder="0" alt="ikon"></iframe> 
+            dan pilih "Color" untuk memperjelas nilai penjualan berdasarkan segmen untuk setiap region.
+        </li>
+        <iframe src="https://drive.google.com/file/d/1LrJy7M4OunxHC4-0E2e9l75-u0k4Mv74/preview" width="100%" height="300px" alt="Pembedaan Warna"></iframe>
+
+        <li>Untuk memperbarui visualisasi setelah data ter-update, pilih <b>"Orders"</b> kemudian pilih <b>"Refresh"</b>, maka visualisasi akan otomatis berubah</li>
+        <iframe src="https://drive.google.com/file/d/1sP0q4hpNWCoOWB9U1X93wwf_gUVEm43E/preview" width="100%" height="300px" alt="Update Visualisasi"></iframe>
+    </ol>
+
+    <p>Untuk panduan membuat visualisasi menggunakan stackedbar, pengguna dapat melihat video di bawah ini:</p>
+    <iframe src="https://drive.google.com/file/d/18yPeOI1909M71_8G5U6EzhmgfyLdUeyg/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+    <h2 id="visualisasi-pie-chart">Membuat Visualisasi Pie Chart</h2>
+    <p>
+        Pie Chart membantu menunjukkan proporsi data dalam satu kategori. Langkah-langkah yang dapat digunakan untuk membangun pie chart adalah sebagai berikut:
+    </p>
+    <ol type="1">
+        <li><b>Buat Worksheet Baru</b>: Pilih "New Worksheet" dari menu "Worksheet".</li>
+        <iframe src="https://drive.google.com/file/d/1VpteE5IVISx6lwHWF2ynIQTU-Mbf4Xea/preview" width="100%" height="150px" alt="Buat Worksheet"></iframe>
+
+        <li><b>Ganti Nama Worksheet</b>: Ganti nama worksheet baru menjadi "Proportion of Segment".</li>
+        <li><b>Pilih Data</b>: Tahan tombol CTRL dan pilih "Segment" dan "Orders (Count)" dari panel "Tables".</li>
+        <iframe src="https://drive.google.com/file/d/1Mf4vG1MzcqI-qVMVCWYxvcdqTY1tmeBN/preview" width="100%" height="300px" alt="Pilih Data"></iframe>
+
+        <li><b>Pilih Tipe Chart</b>: Pada panel "Show Me", pilih ikon pie chart.</li>
+        <iframe src="https://drive.google.com/file/d/10ECY7TbUyrGqF4t7u_RpVt3d_co0lhB7/preview" width="100%" height="300px" alt="Tipe Chart"></iframe>
+
+        <li><b>Tambahkan Detail</b>: Tarik dan geser "Orders (Count)" ke panel "Marks".</li>
+        <iframe src="https://drive.google.com/file/d/1J2aa2icZ_89HaMhB20G-kXSn9V_HRpmO/preview" width="100%" height="300px" alt="Detail"></iframe>
+
+        <li>
+            <b>Tambahkan Label</b>: Pilih ikon 
+            <iframe src="https://drive.google.com/file/d/1Md2PWmWa_NWzCMR-kj_D_IYc3UQwa4F1/preview" width="25" height="25" style="vertical-align: middle;" frameborder="0" alt="ikon"></iframe> 
+            dan pilih "Label" untuk menambahkan detail segmen
+        </li>
+        <iframe src="https://drive.google.com/file/d/1umOU8rFAsivtn9ajH9bATr8F0CZ0OM91/preview" width="100%" height="300px" alt="Label"></iframe>
+
+        <li><b>Ubah ke Persentase</b>: Untuk mengubah jumlah menjadi persentase, pilih "CNT(Orders)" dan pilih "Add Table Calculation".</li>
+        <iframe src="https://drive.google.com/file/d/1gbct5VC4C_2WFGcKbk9EAuiXUDXZFe-v/preview" width="100%" height="300px" alt="Persentase"></iframe>
+
+        <li>Dilanjutkan dengan pilih "Percent of Total" di bawah "Calculation Type" dan "Specific Dimension" di bawah "Compute Using".</li>
+        <iframe src="https://drive.google.com/file/d/15CjhNv4e6W8ijr5THT66u_nRu9Nn1Oc4/preview" width="100%" height="300px" alt="Percent of Total"></iframe>
+    </ol>
+
+    <p>Untuk panduan membuat visualisasi menggunakan piechart, pengguna dapat melihat video di bawah ini:</p>
+    <iframe src="https://drive.google.com/file/d/1N2UFMlTA45gfI6Qau9VSioTkwuPizoOw/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+    <h2 id="visualisasi-line-chart">Membuat Visualisasi Line Chart</h2>
+    <p>
+        Line Chart digunakan untuk menunjukkan tren data dari waktu ke waktu. Langkah-langkah untuk membangun line chart adalah sebagai berikut:
+    </p>
+    <ol type="1">
+        <li><b>Buat Worksheet Baru</b>: Pilih "New Worksheet" dari menu "Worksheet" dan ganti nama menjadi "Sales Central Asia vs. Southeast Asia by Month".</li>
+        <iframe src="https://drive.google.com/file/d/1p6jr9EhFQV6ifqE8tHpGTYLDldR9qAVH/preview" width="100%" height="150px" alt="Worksheet Baru"></iframe>
+
+        <li><b>Pilih Data</b>: Tahan tombol CTRL dan pilih "Order Date", "Region", dan "Sales" dari panel "Tables".</li>
+        <li><b>Pilih Tipe Chart</b>: Pilih ikon line chart di panel "Show Me".</li>
+        <iframe src="https://drive.google.com/file/d/1Dd2OQqLKGMC5hM_DllV19DgItIpLeb2D/preview" width="100%" height="300px" alt="Tipe Chart"></iframe>
+
+        <li><b>Ubah Data ke Bulanan</b>: Ubah opsi data "Year" menjadi "Monthly" pada panel "Columns".</li>
+        <iframe src="https://drive.google.com/file/d/14g4oMO86SD4XreOUckFqe_txb9iv6SSe/preview" width="100%" height="300px" alt="Tipe Chart"></iframe>
+
+        <li><b>Filter Region</b>: Untuk menampilkan hanya region tertentu, tarik dan geser "Region" ke panel "Filter" dan pilih "Central Asia" dan "Southeast Asia".</li>
+        <iframe src="https://drive.google.com/file/d/1TfpxzZqHRekOAzcEhafjnWxuMGuUzHhJ/preview" width="100%" height="300px" alt="Tipe Chart"></iframe>
+
+        <li>Untuk memperbarui visualisasi setelah data ter-update, pilih <b>"Orders"</b> kemudian pilih <b>"Refresh"</b>, maka visualisasi akan otomatis berubah.</li>
+        <iframe src="https://drive.google.com/file/d/1W_qTM4fjuu4o5obXJPjkmCBVn_HPIdQU/preview" width="100%" height="300px" alt="Tipe Chart"></iframe>
+    </ol>
+
+    <p>
+        Untuk panduan membuat visualisasi menggunakan linechart, pengguna dapat melihat video di bawah ini:
+    </p>
+    <iframe src="https://drive.google.com/file/d/1E0WFaqPsUDxTlC9_3CQl5AhNZ5ePbUnr/preview" width="100%" height="400vh" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+    <p>
+        <div class="note-box"> <!-- Notes Box -->
+            <h2>
+                <img src="https://drive.google.com/thumbnail?id=1u0BdBLr-b-GNRs-OwQ11Ruv183nuTpvu" alt="Notes Image" style="vertical-align: middle; margin-right: 10px; max-width: 30px; max-height: 30px; padding-top: 5px;">Notes
+            </h2>
+            <p>
+                Dengan mengikuti langkah-langkah ini, dapat memanfaatkan fitur-fitur Tableau untuk membuat visualisasi data yang detail, interaktif, dan memberikan wawasan yang mendalam.
+            </p>
+        </div>
+    </p>
+
+
+</div>

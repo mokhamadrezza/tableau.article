@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working with Big Data</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="Judul">Working with Big Data</h1>
+        </div>
+<style>
+    
+body{
+    background-color: #fff;
+}
+.container{
+    background-color: #fff;
+    padding-top: 3cm;
+    padding-left: 4cm;
+    padding-right: 3cm;
+    padding-bottom: 3cm;
+    max-width: 100%;
+    display: contents;
+}
+
+.container .header{
+    color: black;
+}
+
+.Judul{
+    font-size: 28pt;
+    text-align: left;
+    font-weight: bolder;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-family: Calibri, Arial, sans-serif;
+    max-width: 100%;
+}
+
+.content-box{
+    max-width: 100%;
+    min-width: 50%;
+    border: 2px solid #4471C4;
+    background-color: #fff;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 12pt;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 10px;
+    text-align: justify;
+}
+
+.content-box h2{
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    max-width: 100%;
+}
+
+.content-box ul{
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    max-width: 100%;
+}
+
+.content-box ul li{
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+
+.no-bullets{
+    list-style-type: none;
+    padding-left: 0;
+    max-width: 100%;
+}
+
+.no-bullets ul{
+    padding-left: 30px; /* Menambahkan indentasi untuk daftar bersarang */
+    max-width: 100%;
+}
+
+.note-box{
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #000;
+    background-color: #CFE1F3; /* Warna latar belakang seperti catatan */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    font-family: Calibri, Arial, sans-serif;
+    position: relative;
+}
+
+.note-box h2{
+    margin-top: 0;
+    max-width: fit-content;
+    font-size: 26px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+}
+
+.note-box p{
+    margin: 0;
+    max-width: fit-content;
+    font-size: 18px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+}
+/* Style for h1 */
+h1{
+    font-size: 20pt; /* Ukuran font 20 */
+    font-weight: bolder;
+    font-family: Calibri, Arial, sans-serif;
+    color: #1f2855;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    text-align: justify;
+    max-width: 100%;
+}
+/* Style for h2 */
+h2{
+    font-size: 14pt; /* Ukuran font 18 */
+    font-weight: bolder;
+    font-family: Calibri, Arial, sans-serif;
+    margin-top: 15px;
+    margin-right: 10px;
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    text-align: justify;
+    max-width: 100%;
+}
+/*Style for h3 */
+h3 {
+    font-size: 12pt;
+    font-weight: bold;
+    font-family: calibri, Arial, sans-serif;
+    margin-top: 10px;
+    margin-right: 10px;
+    line-height: 1.5; /*Jarak spasi 1/5 */
+    text-align: justify;
+    max-width: 100%;
+
+}
+/* Style for p */
+p{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    margin-right: 10px;
+    max-width: 100%;
+}
+/* Style for ul and ol */
+ul, ol{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    max-width: 90vw;
+}
+/* Style for li */
+li{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    margin-right: 10px;
+    max-width: 100%;
+}
+
+.small-text{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: center;
+    font-size: 10pt;
+}
+
+.Tools{
+    max-width: 85%;
+    height: auto;
+    display: block;
+    margin-left: 30%;
+    margin-top: 15pt;
+    margin-bottom: 15pt;
+}
+
+.Tipe{
+    max-width: 85%;
+    height: auto;
+    display: block;
+    margin-left: 0%;
+    margin-top: 15pt;
+    margin-bottom: 15pt;
+}
+
+iframe{
+    max-width: 100%;
+    min-height:auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 10px;
+}
+th {
+    background-color: #2796a3;
+    color: white;
+    text-align: center;
+}
+td {
+    text-align: left;
+}
+tr:hover {
+    background-color: beige;
+}
+
+font {
+    max-width: 100%;
+}
+
+</style>
+
+<div class="content-box"> <!-- Berisi Poin-poin Konten-->
+    <h2>
+        <img src="https://drive.google.com/thumbnail?id=1OSwy6Vn5jv8ERj5uV-d5abA8LFGNXV9x" alt="Content Image" style="vertical-align: middle; margin-right: 10px; max-width: 40px; max-height: 40px; padding-top: 10px;">Content
+    </h2>
+    <ul class="no-bullets">
+        <a href="#big-data" target="_blank">Big Data</a>
+        <ul class="no-bullets">
+            <li>
+                <a href="#pengertian" target="_blank">Pengertian Big Data</a>
+            </li>
+            <li>
+                <a href="#pemrosesan-dan-data-analisis" target="_blank">Pemrosesan dan Data Analisis Big Data</a>
+            </li>
+            <li>
+                <a href="#perbedaan-big-data" target="_blank">Perbedaan Big Data dan Small Data</a>
+            </li>
+            <li>
+                <a href="#mengelola-big-data" target="_blank">Mengelola Big Data dalam Tableau</a>
+            </li>        
+        </ul>
+    
+        <a href="#data-extracts" target="_blank">Data Extracts</a>
+        <ul class="no-bullets">
+            <li>
+                <a href="#pengertian-data-extract" target="_blank">Pengertian Tableau Data Extract (TDE)</a>
+            </li>
+            <li>
+                <a href="#implementasi-data-extract" target="_blank">Implementasi Tableau Data Extract</a>
+            </li>
+        </ul>
+
+        <a href="#data-blending" target="_blank">Data Blending</a>
+        <ul class="no-bullets">
+            <li>
+                <a href="#pengertian-data-blending" target="_blank">Pengertian Tableau Data Blending</a>
+            </li>
+            <li>
+                <a href="#keuntungan-data-blending" target="_blank">Keuntungan Tableau Data Blending</a>
+            </li>
+            <li>
+                <a href="#implementasi-data-blending" target="_blank">Implementasi Tableau Data Blending</a>
+            </li>
+        </ul>            
+
+    </ul>
+    
+</div>
+
+<div class="content-box">
+    <h1 id="big-data">Big Data</h1>
+    <h2 id="pengertian">Pengertian Big Data</h2>
+    <p>
+        <b>Big Data</b> adalah kumpulan data yang sangat besar atau kompleks, yang sulit diolah dengan metode tradisional. Jumlah data yang dihasilkan oleh berbagai sumber, mulai dari transaksi bisnis hingga interaksi online, terus meningkat seiring dengan kemajuan teknologi. 
+        Konsep Big Data melibatkan tiga tahap utama: pemrosesan, analisis, dan visualisasi data dalam skala besar.
+    </p>
+
+    <h2 id="pemrosesan-dan-data-analisis">Pemrosesan dan Data Analisis Big Data</h2>
+    <p>
+        Teknologi modern memungkinkan pengumpulan dan penyimpanan data dalam jumlah besar. Pemrosesan data yang terstruktur dan tidak terstruktur memungkinkan penggalian wawasan, identifikasi pola, dan pengungkapan tren yang tidak terlihat pada pandangan pertama. 
+        Big Data juga memungkinkan analisis yang lebih mendalam untuk pengambilan keputusan yang lebih baik dan inovatif.
+    </p>
+
+    <h2 id="perbedaan-big-data">Perbedaan Big Data dan Small Data</h2>
+    <p>
+        Perbedaan utama antara Big Data dan Small Data adalah dalam hal volume, kecepatan, variasi, dan kualitas data:
+    </p>
+
+    <table border="1", cellpadding="8", style="vertical-align: middle;">
+        <tr>
+            <th>Komponen</th>
+            <th>Big Data</th>
+            <th>Small Data</th>
+        </tr>
+        <tr>
+            <td><b>Volume</b></td>
+            <td>Sangat besar, mencapai petabyte atau eksabyte</td>
+            <td>Lebih terkendali</td>
+        </tr>
+        <tr>
+            <td><b>Velocity</b></td>
+            <td>Kecepatan pertumbuhan data sangat cepat</td>
+            <td>Pertumbuhan data lebih lambat dan dapat diprediksi</td>
+        </tr>
+        <tr>
+            <td><b>Variety</b></td>
+            <td>Beragam dalam jenis maupun format</td>
+            <td>Cencerung lebih homogen</td>
+        </tr>
+        <tr>
+            <td><b>Veracity</b></td>
+            <td>Tantangan dalam kualitas dan keandalan data</td>
+            <td>Kualitas data lebih tinggi</td>
+        </tr>
+    </table>
+
+    <h2 id="mengelola-big-data">Mengelola Big Data dalam Tableau</h2>
+    <h3>Teknik Mengelola Big Data di Tableau</h3>
+    <ol type="1">
+        <li>
+            <b>Tableau Extract</b>: Teknik ini mengoptimalkan kinerja dengan mengambil bagian atau seluruh data dari sumbernya dan menyimpannya dalam format file Tableau extract (.tde atau .hyper). 
+            Teknik ini memudahkan pengolahan data besar dan kompleks dengan cara membuat salinan lokal dari data yang dibutuhkan.
+        </li>
+        <li>
+            <b>Data Blending</b>: Teknik ini memungkinkan penggabungan data dari berbagai sumber untuk membuat visualisasi data yang lebih kaya dan informatif. 
+            Tableau menggabungkan data dari sumber yang berbeda berdasarkan hubungan yang telah ditentukan.
+        </li>
+    </ol>
+
+    <h1 id="data-extracts">Data Extracts</h1>
+    <iframe src="https://drive.google.com/file/d/1dzVqNxqjtLdMQpDg_rOAwSF3temzgHpn/preview" width="100%" height="300px" frame-border="0" alt="Data Extract_1"></iframe>
+
+    <h2 id="pengertian-data-extract">Pengertian Tableau Data Extract (TDE)</h2>
+    <p>
+        TDE adalah format penyimpanan data yang dioptimalkan dan dikompresi khusus untuk aplikasi Tableau. TDE dapat dihasilkan dari berbagai sumber data seperti file CSV, Excel, dan database relasional. 
+        Ekstrak data ini memungkinkan pengguna untuk menganalisis data dengan cepat dan efisien.
+    </p>
+    <p>
+        Keuntungan Tableau Data Extracts:
+    </p>
+    <ol type="1">
+        <li><b>Kinerja yang Lebih Cepat</b>: Visualisasi merespons lebih cepat karena data telah diolah dan dioptimalkan.</li>
+        <li><b>Pemrosesan Lebih Efisien</b>: Sebagian besar operasi pemrosesan data telah selesai sebelum visualisasi dilakukan, mengurangi beban pemrosesan real-time.</li>
+        <li><b>Akses Offline</b>: Pengguna dapat bekerja dengan ekstrak tanpa terhubung langsung ke sumber data.</li>
+        <li><b>Optimasi Kolom</b>: Pengguna dapat mengoptimalkan kolom untuk jenis data tertentu, mengurangi kebutuhan penyimpanan dan meningkatkan kinerja analisis.</li>
+        <li><b>Pembaruan Data yang Fleksibel</b>: Pengguna dapat memperbarui ekstrak sesuai jadwal yang ditentukan, memilih antara pembaruan penuh atau inkremental.</li>
+    </ol>
+
+    <h2 id="implementasi-data-extract">Implementasi Tableau Data Extract</h2>
+    <ol type="1">
+        <li><b>Menghubungkan ke Data</b>: Setelah terhubung ke data, pilih <b>extract</b> di sudut kanan atas dan klik Edit.</li>
+        <iframe src="https://drive.google.com/file/d/1E5m3l88Hs6O0IkurQfEClWryL5_9BBbh/preview" width="100%" height="150px" frame-border="0" alt="Data Extract_2"></iframe>
+
+        <li><b>Konfigurasi extract</b>: Tentukan bagaimana data extract harus disimpan, seberapa banyak data yang akan diekstrak, agregasi data, dan sampling data.</li>
+        <iframe src="https://drive.google.com/file/d/1jQHZs05Tr9dSi40Y_tKIyD9diWV1Qf4t/preview" width="100%" height="300px" frame-border="0" alt="Data Extract_3"></iframe>
+
+        <li><b>Membuat extract</b>: Klik OK, lalu pilih sheet tab untuk memulai pembuatan extract</li>
+    </ol>
+
+    <p>Untuk lebih memahami implementasi data extract, pengguna dapat melihat video di bawah ini:</p>
+    <iframe src="https://drive.google.com/file/d/1UDbkFbrLt15V8c0dFsrr3Dzf-rte4vCM/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+    <p>
+        <div class="note-box"> <!-- Notes Box -->
+            <h2>
+                <img src="https://drive.google.com/thumbnail?id=1u0BdBLr-b-GNRs-OwQ11Ruv183nuTpvu" alt="Notes Image" style="vertical-align: bottom; margin-right: 10px; max-width: 30px; max-height: 30px; padding-top: 5px;">Notes
+            </h2>
+            <p>
+                Dengan visualisasi data yang menarik dan analisis mendalam, Tableau membantu pengguna mendapatkan wawasan yang lebih baik dan membuat keputusan yang lebih informasional.
+            </p>
+        </div>
+    </p>
+
+    <h1 id="data-blending">Data Blending</h1>
+    <iframe src="https://drive.google.com/file/d/1hFcMyDNxa2FbvPccGIl_C5YPARHnpPaH/preview" width="100%" height="300px" frame-border="0" alt="Data Blending_1"></iframe>
+
+    <h2 id="pengertian-data-blending">Pengertian Tableau Data Blending</h2>
+    <p>
+        Tableau Data Blending adalah teknik yang digunakan untuk menggabungkan data dari sumber yang berbeda dalam satu analisis visual. 
+        Teknik ini memungkinkan pengguna menciptakan visualisasi yang lebih kaya dan mendalam dengan mengintegrasikan informasi dari beberapa sumber data yang mungkin memiliki struktur atau tipe yang berbeda.
+    </p>
+
+    <p>
+        <div class="note-box"> <!-- Notes Box -->
+            <h2>
+                <img src="https://drive.google.com/thumbnail?id=1u0BdBLr-b-GNRs-OwQ11Ruv183nuTpvu" alt="Notes Image" style="vertical-align: bottom; margin-right: 10px; max-width: 30px; max-height: 30px; padding-top: 5px;">Notes
+            </h2>
+            <p>
+                Menjawab Pertanyaan seperti “Apa yang ingin ditunjukkan?” dapat membantu memilih jenis diagram yang tepat.
+            </p>
+        </div>
+    </p>
+
+    <h2 id="keuntungan-data-blending">Keuntungan Tableau Data Blending</h2>
+    <ol type="1">
+        <li><b>Integrasi Sumber Data Berbeda</b>: Menggabungkan data dari berbagai sumber dengan struktur dan format yang berbeda.</li>
+        <li><b>Wawasan Lebih Komprehensif</b>: Mengidentifikasi hubungan dan tren yang tidak terlihat jika menganalisis masing-masing sumber secara terpisah.</li>
+        <li><b>Memperkaya Visualisasi</b>: Membuat presentasi dan laporan yang lebih menarik dan informatif.</li>
+        <li><b>Mengatasi Keterbatasan Sumber Tunggal</b>: Menambahkan sumber tambahan yang relevan untuk pemahaman yang lebih baik.</li>
+        <li><b>Analisis Lintas Dimensi</b>: Menganalisis data dari berbagai sudut pandang dan memahami dampak interaksi antara variabel-variabel.</li>
+    </ol>
+
+    <h2 id="implementasi-data-blending">Implementasi Tableau Data Blending</h2>
+    <ol type="1">
+        <li><b>Menghubungkan Workbook ke Sumber Data</b>: Pastikan workbook memiliki beberapa sumber data, misalnya <b>"Target Sales"</b> sebagai Primary Data.</li>
+        <iframe src="https://drive.google.com/file/d/117rXpzZHT_7xV8XQ39e2YHzSVfM6I8bO/preview" width="100%" height="300px" frame-border="0" alt="Data Blending_2"></iframe>
+
+        <li><b>Menambahkan Sumber Data Kedua</b>: Tambahkan <b>"Sales Profit"</b> sebagai Secondary Data, dengan cara  pergi ke <b>Data &rarr; Sumber Data Baru &rarr; Microsoft Excel</b>. Pada modul ini akan digunakan data <b>“Sales Profit”</b>.</li>
+        <iframe src="https://drive.google.com/file/d/1zYyePDWfBPPrPzbaOG9QKuaMrS16oWxv/preview" width="100%" height="300px" frame-border="0" alt="Data Blending_3"></iframe>
+        
+        <li><b>Ubah Tipe Data</b>: Ubah tipe data data <b>“Date”</b> pada “Sales Profit” dan “Target Sales” yang semula string menjadi date, dengan cara <b>klik kanan "Date" &rarr; Change Data Type &rarr; Date</b>.</li>
+        <iframe src="https://drive.google.com/file/d/13qjnmE09OLBTtmEy0GmIPZxaWYSiv8_7/preview" width="100%" height="300px" frame-border="0" alt="Data Blending_4"></iframe>
+
+        <li><b>Membuat Line Chart</b>: Pilih data source “Sales Profit”, pilih <b>"Date"</b> dan <b>"Sales"</b>, kemudian buat single line chart.</li>
+        <iframe src="https://drive.google.com/file/d/1ZrDoZkBLXzjasDenBK6OLaC-U4PxErl3/preview" width="100%" height="300px" frame-border="0" alt="Data Blending_5"></iframe>
+
+        <li><b>Ubah Periode Waktu</b>: Karena periode waktu default di Tableau adalah Tahunan, data hanya muncul sebagai titik. Untuk mengubahnya menjadi bulanan, klik <b>"Year (date)"</b> di panel "Columns" dan pilih <b>"Month"</b>.</li>
+        <iframe src="https://drive.google.com/file/d/1VJXzxeWjpwE8OxHMXK6x_YoxMA11bojn/preview" width="100%" height="300px" frame-border="0" alt="Data Blending_6"></iframe>
+
+        <li><b>Menambahkan Data “Target Sales”</b>: Pilih <b>“Target Sales”</b> dan drag-and-drop “Target Sales” ke panel "Rows". Line chart baru akan muncul secara otomatis di bawah.</li>
+        <iframe src="https://drive.google.com/file/d/1Th-JETyrooq_6ev0TSkXsnpVvK07Z8TH/preview" width="100%" height="300px" frame-border="0" alt="Data Blending_7"></iframe>
+
+        <p>Dengan memahami dan mengimplementasikan teknik-teknik ini, pengguna dapat memanfaatkan fitur-fitur Tableau untuk membuat visualisasi data yang detail, interaktif, dan memberikan wawasan yang mendalam dari Big Data.</p>
+    </ol>
+
+    <p>Untuk lebih memahami implementasi data extract, pengguna dapat melihat video di bawah ini:</p>
+    <iframe src="https://drive.google.com/file/d/14BGMnULsKqXa9kDxO3DriyLgcMzgQ63R/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+    
+
+
+</div>

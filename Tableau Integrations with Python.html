@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau Integrations with Python</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="Judul">Tableau Integrations with Python</h1>
+        </div>
+<style>
+    
+body{
+    background-color: #fff;
+}
+.container{
+    background-color: #fff;
+    padding-top: 3cm;
+    padding-left: 4cm;
+    padding-right: 3cm;
+    padding-bottom: 3cm;
+    max-width: 100%;
+    display: contents;
+}
+
+.container .header{
+    color: black;
+}
+
+.Judul{
+    font-size: 28pt;
+    text-align: left;
+    font-weight: bolder;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-family: Calibri, Arial, sans-serif;
+    max-width: 100%;
+}
+
+.content-box{
+    max-width: 100%;
+    min-width: 50%;
+    border: 2px solid #4471C4;
+    background-color: #fff;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 12pt;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 10px;
+    text-align: justify;
+}
+
+.content-box h2{
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    max-width: 100%;
+}
+
+.content-box ul{
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    max-width: 100%;
+}
+
+.content-box ul li{
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+
+.no-bullets{
+    list-style-type: none;
+    padding-left: 0;
+    max-width: 100%;
+}
+
+.no-bullets ul{
+    padding-left: 30px; /* Menambahkan indentasi untuk daftar bersarang */
+    max-width: 100%;
+}
+
+.note-box{
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #000;
+    background-color: #CFE1F3; /* Warna latar belakang seperti catatan */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    font-family: Calibri, Arial, sans-serif;
+    position: relative;
+}
+
+.note-box h2{
+    margin-top: 0;
+    max-width: fit-content;
+    font-size: 30px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+}
+
+.note-box p{
+    margin: 0;
+    max-width: fit-content;
+    font-size: 20px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+}
+/* Style for h1 */
+h1{
+    font-size: 20pt; /* Ukuran font 20 */
+    font-weight: bolder;
+    font-family: Calibri, Arial, sans-serif;
+    color: #1f2855;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    text-align: justify;
+    max-width: 100%;
+}
+/* Style for h2 */
+h2{
+    font-size: 14pt; /* Ukuran font 18 */
+    font-weight: bolder;
+    font-family: Calibri, Arial, sans-serif;
+    margin-top: 15px;
+    margin-right: 10px;
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    text-align: justify;
+    max-width: 100%;
+}
+/*Style for h3 */
+h3 {
+    font-size: 12pt;
+    font-weight: bold;
+    font-family: calibri, Arial, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    line-height: 1.5; /*Jarak spasi 1/5 */
+    text-align: justify;
+    max-width: 100%;
+
+}
+/* Style for p */
+p{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    margin-right: 10px;
+    max-width: 100%;
+}
+/* Style for ul and ol */
+ul, ol{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    max-width: 90vw;
+}
+/* Style for li */
+li{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    margin-right: 10px;
+    max-width: 100%;
+}
+
+.small-text{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: center;
+    font-size: 10pt;
+}
+
+.Tools{
+    max-width: 85%;
+    height: auto;
+    display: block;
+    margin-left: 30%;
+    margin-top: 15pt;
+    margin-bottom: 15pt;
+}
+
+.Tipe{
+    max-width: 85%;
+    height: auto;
+    display: block;
+    margin-left: 0%;
+    margin-top: 15pt;
+    margin-bottom: 15pt;
+}
+
+iframe{
+    max-width: 100%;
+    min-height: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 10px;
+}
+th {
+    background-color: #2796a3;
+    color: white;
+    text-align: center;
+}
+td {
+    text-align: left;
+}
+tr:hover {
+    background-color: beige;
+}
+
+font {
+    max-width: 100%;
+}
+
+</style>
+
+<div class="content-box"> <!-- Berisi Poin-poin Konten-->
+    <h2>
+        <img src="https://drive.google.com/thumbnail?id=1OSwy6Vn5jv8ERj5uV-d5abA8LFGNXV9x" alt="Content Image" style="vertical-align: middle; margin-right: 10px; max-width: 40px; max-height: 40px; padding-top: 10px;">Content
+    </h2>
+    <ul class="no-bullets">
+        <a href="#python-pada-tableau" target="_blank">Python pada Tableau</a>
+        <ul class="no-bullets">
+            <li>
+                <a href="#perbedaan-tableau-python" target="_blank">Perbedaan Tableau dan Python</a>
+            </li>
+            <li>
+                <a href="#penggunaan-python-tableau" target="_blank">Penggunaan Python dan Tableau</a>
+            </li>      
+        </ul>
+    
+        <a href="#visualisasi-tabpy" target="_blank">Visualisasi dengan Tabpy</a>
+        <ul class="no-bullets">
+            <li>
+                <a href="#pengenalan-tabpy" target="_blank">Pengenalan Tabpy</a>
+            </li>
+            <li>
+                <a href="#langkah-langkah-tabpy" target="_blank">Langkah-Langkah Menggunakan Tabpy</a>
+            </li>
+        </ul>            
+
+    </ul>
+    
+</div>
+
+<div class="content-box">
+    <h1 id="python-pada-tableau">Python pada Tableau</h1>
+    <h2 id="perbedaan-tableau-python">Perbedaan Tableau dan Python</h2>
+    <p>
+        Tableau dan Python adalah dua hal yang berbeda dalam konteks pemrograman dan analisis data. Tableau merupakan tools yang dapat digunakan untuk membuat visualisasi data ke dalam bentuk dashboard, sehingga data dapat menjadi lebih interaktif, dan mudah untuk dianalisis (Afikah, Afandi & Hasan 2022). 
+        Sedangkan <b>Python</b> adalah bahasa pemrograman yang digunakan untuk analisis data, pemrosesan data, dan pengembangan aplikasi. Berikut adalah beberapa perbedaan antara Tableau dan Python:
+    </p>    
+
+    <table border="1" cellpadding="8" style="vertical-align: middle;">
+        <tr>
+            <th>Komponen</th>
+            <th>Tableau</th>
+            <th>Python</th>
+        </tr>
+        <tr>
+            <td><b>Penggunaan</b></td>
+            <td>Dapat terhubung ke berbagai jenis database dan dapat memuat data dari berbagai jenis file seperti teks, JSON, CSV, xlsx, dll</td>
+            <td>Mengelola data yang sangat besar bahkan jika melalui streaming data sekalipun</td>
+        </tr>
+        <tr>
+            <td><b>Penanganan Data</b></td>
+            <td>Cepat dan mudah dipelajari. Selain itu, kemudahannya dalam pengoperasian hampir tidak memerlukan pengetahuan pemrograman yang mendalam</td>
+            <td>Memakan waktu dan cukup sulit dipelajari dikarenakan memerlukan pengetahuan pemrograman</td>
+        </tr>
+        <tr>
+            <td><b>Visualisasi</b></td>
+            <td>Mudah digunakan oleh user dalam melakukan visualisasi data</td>
+            <td>Dapat menghasilkan visualisasi, tetapi prosesnya sangat memakan waktu dan rumit</td>
+        </tr>
+        <tr>
+            <td><b>Bahasa Pemrograman</b></td>
+            <td>Menggunakan bahasa pemrograman yang disebut Tableau Calculation Language (TCL)</td>
+            <td>Menggunakan bahasa pemrograman Python</td>
+        </tr>
+        <tr>
+            <td><b>Kompleksitas</b></td>
+            <td>Lebih mudah digunakan dan dipelajari</td>
+            <td>Memerlukan pemahaman yang lebih mendalam tentang bahasa pemrograman dan konsep pemrograman</td>
+        </tr>
+    </table>
+
+    <h2 id="penggunaan-python-tableau">Penggunaan Python dan Tableau</h2>
+    <p>
+        Terdapat beberapa cara untuk mengintegrasikan Python pada Tableau, seperti menggunakan TabPy. Integrasi Python pada Tableau memungkinkan beberapa hal yaitu:
+    </p>
+
+    <ol type="1">
+        <li>
+            Pengguna Tableau dapat mengeksekusi kode Python dan fungsi yang disimpan di dalamnya, sehingga pengguna dapat memanfaatkan kekuatan Python dalam analisis data dan visualisasi data di dalam Tableau.
+        </li>
+        <li>
+            Pengguna dapat memanfaatkan kekuatan Tableau dalam memvisualisasikan data dan membuat dashboard.
+        </li>
+    </ol>
+
+    <p>
+        Dalam memilih antara Tableau dan Python, pengguna harus mempertimbangkan tujuan penggunaan, kompleksitas, kustomisasi, dan integrasi dengan aplikasi lain. 
+        Python dan Tableau dapat digunakan bersama-sama untuk meningkatkan analisis data dan kemampuan visualisasi data. 
+        Berikut adalah cara terhubung ke sumber data, memanipulasi data, dan membuat visualisasi khusus menggunakan Python dan Tableau:
+    </p>
+    <ol type="1">
+        <li><b>Terhubung ke Sumber Data</b></li>
+        <p>
+            <b>Tableau dapat terhubung dengan berbagai sumber data seperti file Excel, CSV, dan database SQL. Untuk terhubung ke sumber data Python, kita dapat menggunakan library seperti Pandas dan SQLAlchemy</b>. 
+            Pandas dapat membaca file CSV, Excel, SQL, dan berbagai format data lainnya. SQLAlchemy dapat digunakan untuk terhubung ke database SQL dan melakukan query.
+        </p>
+
+        <li><b>Manipulasi Data</b></li>
+        <p>
+            Setelah terhubung ke sumber data, <b>pengguna dapat menggunakan Pandas untuk memanipulasi data</b> sebelum dimasukkan ke dalam Tableau. 
+            Contohnya, melakukan transformasi data seperti penghapusan kolom atau baris yang tidak diperlukan, penggabungan data, atau pembuatan kolom baru dari data yang sudah ada.
+        </p>
+
+        <li><b>Visualisasi Khusus</b></li>
+        <p>
+            Tableau memiliki berbagai pilihan visualisasi, namun dengan menggunakan Python memungkinkan untuk membuat visualisasi yang lebih khusus dan lebih kompleks. 
+            Pengguna dapat menggunakan library seperti <b>Matplotlib</b>, <b>Seaborn</b>, dan <b>Plotly</b> untuk membuat visualisasi yang lebih kustom. 
+            Data dari Python dapat diintegrasikan ke dalam visualisasi Tableau dengan menggunakan konsep yang disebut Tableau External Service.
+        </p>
+        <p>
+            Untuk menggunakan Tableau External Service, pengguna perlu membuat script Python dan menghubungkannya ke Tableau. 
+            Setelah itu, membuat tindakan khusus pada visualisasi Tableau untuk memanggil script Python dan menampilkan visualisasi yang dihasilkan dalam jendela pop-up atau dalam visualisasi Tableau.
+        </p>
+    </ol>
+
+    <h1 id="visualisasi-tabpy">Visualisasi dengan Tabpy</h1>
+    <h2 id="pengenalan-tabpy">Pengenalan Tabpy</h2>
+    <p>
+        <b>TabPy</b> (Server Tableau Python) adalah implementasi Analytics Extension yang memperluas kemampuan Tableau dengan memungkinkan pengguna untuk mengeksekusi skrip Python dan menyimpan fungsi melalui perhitungan tabel Tableau (Fridriksson 2019). 
+        Framework TabPy memungkinkan Tableau untuk mengeksekusi kode Python dari jarak jauh.
+    </p>
+    <p>
+        TabPy memiliki dua komponen, yaitu:
+    </p>
+    <ol type="1">
+        <li>Serangkaian <b>REST API</b> yang memungkinkan eksekusi kode jarak jauh dalam proses server dan diekspos sebagai titik akhir REST, untuk dipanggil nanti.</li>
+        <li><b>Tools library</b>, berdasarkan fungsi Python yang memungkinkan penerapan dengan tingkat fleksibilitas yang tinggi.</li>
+    </ol>
+    <p>
+        Seiring dengan dirilisnya API (Application Programming Interface), Layanan Eksternal Python, R, dan MATLAB Tableau yang sudah ada dikenal sebagai "Analytics Extensions". 
+        API Analytics Extensions didasarkan pada API Layanan Eksternal TabPy asli, dan TabPy dapat dianggap sebagai implementasi API referensi Tableau. 
+        Terdapat dua cara yang dapat digunakan untuk melakukan perhitungan Python:
+    </p>
+    <ol type="1">
+        <li>Tulis kode secara langsung, kemudian kode akan dieksekusi di server TabPy.</li>
+        <li>Terapkan fungsi ke TabPy server yang dapat dijangkau sebagai REST API endpoint melalui otentikasi dasar dan SSL.</li>
+    </ol>
+    
+    <h2 id="langkah-langkah-tabpy">Langkah-Langkah Menggunakan Tabpy</h2>
+    <p>
+        Dengan menggunakan TabPy, pengguna dapat melakukan berbagai hal salah satunya yaitu untuk mencari nilai korelasi. Sebagai contoh, untuk memvisualisasikan korelasi antara <b>Price</b> dengan <b>Number of Reviews</b> dan <b>Minimum Nights</b> pada data AirBnB. 
+        <b>Dataset AirBNB</b> adalah data berisi nama pemilik hotel, harga, tipe ruangan dan lain-lain pada penginapan AirBnB New York 2019. Berikut adalah langkah-langkahnya:
+    </p>
+    <ol type="1">
+        <li>
+            <b>Unduh dataset AirBNB</b> yang akan digunakan. Dataset tersedia pada: 
+            <a href="https://s.id/AirBnBdataset" target="_blank">
+                <font style="color: blue;"><u>AirBnB Dataset</u></font>
+            </a>.
+        </li>
+        <li>
+            <b>Import dataset</b> yang telah diunduh, dari 16 kolom, akan digunakan variabel berikut dalam kumpulan data ini untuk melakukan mencari korelasi:
+        </li>
+        <ol type="a">
+            <li>price</li>
+            <li>minimum_nights</li>
+            <li>number_of_reviews</li>
+        </ol>
+        <iframe src="https://drive.google.com/file/d/1nzIn5PLJWq_PkI2S1grD0ywnbG1g6lpv/preview" width="100%" height="300px" frame-border="0" alt="Dataset AirBnB"></iframe>
+
+        <li>
+            <b>Jalankan TabPy</b> dengan mengetikkan “tabpy” pada Command Prompt lalu enter.
+        </li>
+        <li>
+            <b>Buka Tableau</b> dan pilih menu Help &gt; Setting and Performance &gt; TabPy.
+        </li>
+        <li>
+            Pada window <b>Manage Analytics Extension Connection</b>, masukkan “localhost” pada Hostname dan 9004 pada Port dan pilih Save
+        </li>
+        <iframe src="https://drive.google.com/file/d/1hWcwOsN6xgao5JK2fkMThbJQvGC4A3-S/preview" width="100%" height="300px" frame-border="0" alt="Manage Analytics"></iframe>
+        
+        <li>
+            Untuk memastikan apakah koneksi berhasil dapat mengklik “Test Connection” dan akan muncul pop-up seperti gambar di bawah ini.
+        </li>
+        <iframe src="https://drive.google.com/file/d/1icZdp5OrSZWZUaZkHX9_BBkFg1rx62vX/preview" width="100%" height="150px" frame-border="0" alt="Action Completed"></iframe>
+        
+        <li>
+            <b>Menampilkan Korelasi dengan Tabpy</b>
+        </li>
+        <ol type="a">
+            <li>Untuk menampilkan korelasi antara jumlah review dengan harga, pada menu pilih Analysis &gt; Create Calculated Field.</li>
+            <p>Masukkan nama “Correlation” lalu masukkan sintaks berikut:</p>
+            <p>
+                <font style="color: green;">SCRIPT_REAL&lpar;"import numpy as np return"</font>
+            </p>
+            <p>
+                <font style="color: green;">np.corrcoef(_arg1,_arg2)[0,1]", SUM([Price]),</font>
+            </p>
+            <p>
+                <font style="color: green;">SUM([Number Of Reviews])&rpar;</font>
+            </p>
+            <iframe src="https://drive.google.com/file/d/1TFE_IairxsnEW7yg2w7iy9NYtfwwNSbb/preview" width="100%" height="300px" frame-border="0" alt="Script Correlation"></iframe>
+
+            <li>Sebelum menekan OK, pilih pada “Default Table Calculation” dan ganti opsi dari Automatic ke Host Id, lalu klik OK.</li>
+            <iframe src="https://drive.google.com/file/d/1Dns9DF0ka1mcpkuLgGM_2XeEFCu2Icow/preview" width="100%" height="300px" frame-border="0" alt="Table Calculation"></iframe>
+
+            <li>Drag-and-drop “Price” dan “Room Type” pada panel “Columns”.</li>
+            <li>Drag-and-drop “Number of Review” pada panel “Rows”.</li>
+            <iframe src="https://drive.google.com/file/d/15EI5Ld37qZ0cliQhMn111KC4E7BiptZd/preview" width="100%" height="150px" frame-border="0" alt="Column and Row"></iframe>
+            
+            <li>Drag-and-drop “Host Id” dan “Correlation” pada panel “Marks Card”.</li>
+            <li>
+                Pilih ikon <iframe src="https://drive.google.com/file/d/1Md2PWmWa_NWzCMR-kj_D_IYc3UQwa4F1/preview" width="20px" height="20px" style="vertical-align: middle;" frame-border="0" alt="Icon Correlation"></iframe>
+                pada “Correlation” yang terletak di “Mark Card” dan ganti menjadi “Color”.
+            </li>
+            <iframe src="https://drive.google.com/file/d/15iLyb_t8KtE6ZUE-O3ZufHjBv8V9PeK1/preview" width="100%" height="300px" frame-border="0" alt="Marks Card"></iframe>
+
+            <li>Pilih pada “Correlation” yang terletak di “Mark Card”, lalu pilih “Discrete” untuk mengganti step warna pada legenda.</li>
+            <iframe src="https://drive.google.com/file/d/1EeJaLD_yWxn_VnxOgE0rmeFK83TLwTiG/preview" width="100%" height="300px" frame-border="0" alt="Discrete Legend"></iframe>
+        </ol>
+
+        <li>
+            <b>Menampilkan Korelasi Minimum Nights dan Price</b>
+        </li>
+        <ol type="a">
+            <li>Untuk menampilkan korelasi antara jumlah minimal malam menginap dengan harga, pada menu pilih Analysis &gt; Create Calculated Field.</li>
+            <li>Masukkan nama “Correlation Night-Price” lalu masukkan sintaks berikut:</li>
+            <p>
+                <font style="color: green;">SCRIPT_REAL&lpar;"import numpy as np</font>
+            </p>
+            <p>
+                <font style="color: green;">return np.corrcoef(_arg1,_arg2)[0,1]",</font>
+            </p>
+            <p>
+                <font style="color: green;">SUM([Price]),SUM([Minimum Nights])&rpar;</font>
+            </p>
+            <iframe src="https://drive.google.com/file/d/1-xQOLS2qaXxWrsti6NPc0pmw1Y6ieKfV/preview" width="100%" height="300px" frame-border="0" alt="Correlation Night-Price”"></iframe>
+
+            <li>Sebelum menekan OK, pilih pada “Default Table Calculation” dan ganti opsi dari Automatic ke Host Id, lalu klik OK.</li>
+            <iframe src="https://drive.google.com/file/d/10lzAnjZgiMgS2XOM-XBoxteGn_Mh8c0O/preview" width="100%" height="300px" frame-border="0" alt="Table Calculation_2"></iframe>
+
+            <li>Drag and drop “Price” dan “Room Type” pada panel “Columns”.</li>
+            <li>Drag and drop “Minimum Nights” pada panel “Rows”.</li>
+            <iframe src="https://drive.google.com/file/d/1w4oHbdDyLSA7tgpX85uBvetORLMMnWBX/preview" width="100%" height="150px" frame-border="0" alt="Column and Row_2"></iframe>
+
+            <li>Drag and drop “Host Id” dan “Correlation Night-Price” pada panel “Marks Card”.</li>
+            <li>Pilih ikon pada “Correlation Night-Price” yang terletak di “Mark Card” dan ganti menjadi “Color”.</li>
+            <iframe src="https://drive.google.com/file/d/1CMT1zZZ00tWVeCFQ6cF89qKr4tOZOsTv/preview" width="100%" height="300px" frame-border="0" alt="Marks Card_2"></iframe>
+
+            <li>Pilih pada “Correlation Night-Price” yang terletak di “Mark Card”, lalu pilih “Discrete” untuk mengganti step warna pada legenda.</li>
+            <iframe src="https://drive.google.com/file/d/1nnXHr5oclQmNmczwH9Y_ngumYbZot85P/preview" width="100%" height="300px" frame-border="0" alt="Discrete Legend_2"></iframe>
+        </ol>
+
+        <p>
+            Contoh lengkap penggunaan Python pada Tableau, dapat dilihat pada video di bawah ini:
+        </p>
+        <iframe src="https://drive.google.com/file/d/1bhBXwmox7_-uZ0VWOr-vBpIw61R5BDkw/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+    </ol>
+
+</div>

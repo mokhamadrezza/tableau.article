@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau Integrations with R</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="Judul">Tableau Integrations with R</h1>
+        </div>
+<style>
+    
+body{
+    background-color: #fff;
+}
+.container{
+    background-color: #fff;
+    padding-top: 3cm;
+    padding-left: 4cm;
+    padding-right: 3cm;
+    padding-bottom: 3cm;
+    max-width: 100%;
+    display: contents;
+}
+
+.container .header{
+    color: black;
+}
+
+.Judul{
+    font-size: 28pt;
+    text-align: left;
+    font-weight: bolder;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-family: Calibri, Arial, sans-serif;
+    max-width: 100%;
+}
+
+.content-box{
+    max-width: 100%;
+    min-width: 50%;
+    border: 2px solid #4471C4;
+    background-color: #fff;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 12pt;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 10px;
+    text-align: justify;
+}
+
+.content-box h2{
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    max-width: 100%;
+}
+
+.content-box ul{
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    max-width: 100%;
+}
+
+.content-box ul li{
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+
+.no-bullets{
+    list-style-type: none;
+    padding-left: 0;
+    max-width: 100%;
+}
+
+.no-bullets ul{
+    padding-left: 30px; /* Menambahkan indentasi untuk daftar bersarang */
+    max-width: 100%;
+}
+
+.note-box{
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #000;
+    background-color: #CFE1F3; /* Warna latar belakang seperti catatan */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    font-family: Calibri, Arial, sans-serif;
+    position: relative;
+}
+
+.note-box h2{
+    margin-top: 0;
+    max-width: fit-content;
+    font-size: 30px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+}
+
+.note-box p{
+    margin: 0;
+    max-width: fit-content;
+    font-size: 20px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+}
+/* Style for h1 */
+h1{
+    font-size: 20pt; /* Ukuran font 20 */
+    font-weight: bolder;
+    font-family: Calibri, Arial, sans-serif;
+    color: #1f2855;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    text-align: justify;
+    max-width: 100%;
+}
+/* Style for h2 */
+h2{
+    font-size: 14pt; /* Ukuran font 18 */
+    font-weight: bolder;
+    font-family: Calibri, Arial, sans-serif;
+    margin-top: 15px;
+    margin-right: 10px;
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    text-align: justify;
+    max-width: 100%;
+}
+/*Style for h3 */
+h3 {
+    font-size: 12pt;
+    font-weight: bold;
+    font-family: calibri, Arial, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    line-height: 1.5; /*Jarak spasi 1/5 */
+    text-align: justify;
+    max-width: 100%;
+
+}
+/* Style for p */
+p{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    margin-right: 10px;
+    max-width: 100%;
+}
+/* Style for ul and ol */
+ul, ol{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    max-width: 90vw;
+}
+/* Style for li */
+li{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    margin-right: 10px;
+    max-width: 100%;
+}
+
+.small-text{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: center;
+    font-size: 10pt;
+}
+
+.Tools{
+    max-width: 85%;
+    height: auto;
+    display: block;
+    margin-left: 30%;
+    margin-top: 15pt;
+    margin-bottom: 15pt;
+}
+
+.Tipe{
+    max-width: 85%;
+    height: auto;
+    display: block;
+    margin-left: 0%;
+    margin-top: 15pt;
+    margin-bottom: 15pt;
+}
+
+iframe{
+    max-width: 100%;
+    min-height: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 10px;
+}
+th {
+    background-color: #2796a3;
+    color: white;
+    text-align: center;
+}
+td {
+    text-align: left;
+}
+tr:hover {
+    background-color: beige;
+}
+
+font {
+    max-width: 100%;
+}
+
+</style>
+
+<div class="content-box"> <!-- Berisi Poin-poin Konten-->
+    <h2>
+        <img src="https://drive.google.com/thumbnail?id=1OSwy6Vn5jv8ERj5uV-d5abA8LFGNXV9x" alt="Content Image" style="vertical-align: middle; margin-right: 10px; max-width: 40px; max-height: 40px; padding-top: 10px;">Content
+    </h2>
+    <ul class="no-bullets">
+        <a href="#r-pada-tableau" target="_blank">R pada Tableau</a>
+        <ul class="no-bullets">
+            <li>
+                <a href="#perbandingan-tableau" target="_blank">Perbandingan Tableau dengan R</a>
+            </li>
+            <li>
+                <a href="#integrasi-r-dan-tableau" target="_blank">Integrasi R dan Tableau</a>
+            </li>      
+        </ul>
+    
+        <a href="#integration-r" target="_blank">Integration R with Tableau</a>
+        <ul class="no-bullets">
+            <li>
+                <a href="#penggunaan-rserve" target="_blank">Penggunaan Rserve</a>
+            </li>
+            <li>
+                <a href="#contoh-penggunaan" target="_blank">Contoh Penggunaan R dengan Tableau</a>
+            </li>
+        </ul>            
+
+    </ul>
+    
+</div>
+
+<div class="content-box">
+    <h1 id="r-pada-tableau">R pada Tableau</h1>
+    <h2 id="perbandingan-tableau">Perbandingan Tableau dengan R</h2>
+    <p>
+        <b>Tableau</b> merupakan tools yang dapat digunakan untuk membuat visualisasi data ke dalam bentuk dashboard, sehingga data dapat menjadi lebih interaktif, dan mudah untuk dianalisis &lpar;Afikah, Afandi & Hasan 2022&rpar;. 
+        Sedangkan program R adalah bahasa pemrograman yang dapat digunakan secara bebas atau tidak perlu membayar lisensi &lpar;Fauzan, Mahara & Sulistyo 2020&rpar;.
+    </p>
+    <p>
+        Tableau dan R adalah dua hal yang berbeda dalam konteks pemrograman, visualisasi, dan analisis data. Berikut adalah beberapa perbedaan antara R dan Tableau:
+    </p>
+
+    <table border="1" cellpadding="8" style="vertical-align: middle;">
+        <tr>
+            <th>Komponen</th>
+            <th>Tableau</th>
+            <th>R</th>
+        </tr>
+        <tr>
+            <td><b>Kegunaan</b></td>
+            <td>Digunakan untuk membangun visualisasi data yang interaktif</td>
+            <td>Digunakan untuk berbagai hal seperti web extraction, machine learning, statistik, visualisasi data, web-apps, dan lain-lain</td>
+        </tr>
+        <tr>
+            <td><b>Kurva Belajar (Learning Curve)</b></td>
+            <td>Cepat dan mudah dipelajari. Selain itu, kemudahannya dalam pengoperasian hampir tidak memerlukan pengetahuan pemrograman yang mendalam</td>
+            <td>Memakan waktu dan cukup sulit dipelajari dikarenakan memerlukan pengetahuan pemrograman</td>
+        </tr>
+        <tr>
+            <td><b>Pengoperasian Visualisasi</b></td>
+            <td>Menyediakan visualisasi yang interaktif bagi pengguna maupun audiens secara langsung</td>
+            <td>Sepenuhnya tidak berbayar dikarenakan R merupakan open-source pemrograman</td>
+        </tr>
+        <tr>
+            <td><b>Kontribusi Pihak Ketiga</b></td>
+            <td>Merupakan program berbasis Graphical User Interface (GUI), sehingga membatasi kontribusi pihak ketiga (orang lain) dalam mengembangkan program mereka</td>
+            <td>Merupakan program berbasis Command Line Interface (CLI), sehingga pihak eksternal (orang lain) dapat berkontribusi secara bebas terhadap pengembangan program R</td>
+        </tr>
+    </table>
+
+    <h2 id="integrasi-r-dan-tableau">Integrasi R dan Tableau</h2>
+    <p>
+        Meskipun memiliki perbedaan, terdapat beberapa cara untuk mengintegrasikan R dan Tableau untuk penggunaan secara bersama-sama, seperti dengan menggunakan bantuan paket <b>Rserve</b>.
+    </p>
+    <p>
+        <b>Rserve</b> adalah paket R yang memungkinkan aplikasi lain untuk berkomunikasi dengan R menggunakan TCP/IP atau soket lokal (Rforge, n.d).
+    </p>
+    <p>
+        Berikut adalah beberapa cara untuk mengintegrasikan Rserve dengan Tableau:
+    </p>
+    <ol type="1">
+        <li>
+            <b>Menghubungkan Tableau Prep ke Rserve</b>: Pengguna dapat menghubungkan Tableau Prep ke Rserve untuk melakukan analisis data dan memvisualisasikan data. 
+            Pengguna dapat mengikuti tutorial pada dokumentasi resmi dari Tableau untuk menghubungkan Tableau Prep ke Rserve.
+        </li>
+        <li>
+            <b>Mengkonfigurasi Tableau Server untuk R dan Rserve</b>: Pengguna dapat mengkonfigurasi Tableau Server untuk terhubung ke R dan Rserve melalui TSM command line/shell. 
+            Setelah itu, pengguna dapat membuat dashboard yang mengandung fungsi R dan menampilkannya dalam visualisasi Tableau.
+        </li>
+        <li>
+            <b>Menggunakan R dengan Tableau Desktop</b>: Pengguna dapat menghubungkan R dengan Tableau Desktop melalui calculated fields.
+        </li>
+    </ol>
+
+    <h1 id="integration-r">Integration R with Tableau</h1>
+    <h2 id="penggunaan-rserve">Penggunaan Rserve</h2>
+    <p>
+        Integrasi Rserve dengan Tableau memungkinkan pengguna untuk memanfaatkan kekuatan R dalam analisis data dan visualisasi data di dalam Tableau. Untuk menggunakan R dalam Tableau dapat dilakukan dengan menggunakan <b>paket Rserve</b>, di mana integrasi ini memungkinkan pengguna untuk menggunakan dimensi dan ukuran data yang terhubung secara langsung dalam skrip R dan mengeksekusinya secara langsung. 
+        Setelah itu, pengguna dapat menggunakan hasil skrip dan menampilkannya dalam visualisasi Tableau.
+    </p>
+
+    <h2 id="contoh-penggunaan">Contoh Penggunaan R dengan Tableau</h2>
+    <p>
+        Sebagai contoh, untuk memvisualisasikan korelasi antara Price dengan Number of Reviews dan Minimum Nights pada data AirBnB. Dataset AirBNB adalah data berisi nama pemilik hotel, harga, tipe ruangan dan lain-lain pada penginapan AirBnB New York 2019. Berikut adalah langkah-langkahnya:
+    </p>
+    <ol type="1">
+        <li>
+            <b>Unduh dataset AirBNB</b> yang akan digunakan. Dataset tersedia pada: 
+            <a href="https://s.id/AirBnBdataset" target="_blank">
+                <font style="color: blue;"><u>AirBnB Dataset</u></font>
+            </a>.
+        </li>
+        <li>
+            <b>Import dataset</b> yang telah diunduh, dari 16 kolom, akan digunakan variabel berikut dalam kumpulan data ini untuk melakukan mencari korelasi:
+        </li>
+        <ol type="a">
+            <li>price</li>
+            <li>minimum_nights</li>
+            <li>number_of_reviews</li>
+        </ol>
+        <iframe src="https://drive.google.com/file/d/1xaNVVc9gLhiq-EOkcPT8wPPA2lS8Ruqp/preview" width="100%" height="300px" frame-border="0" alt="Dataset AirBnB"></iframe>
+
+        <li>
+            <b>Buka program R</b> dan panggil paket/modul Rserve dengan mengetikkan “library(Rserve)” pada R Console lalu enter.
+        </li>
+        <li>
+            <b>Jalankan Rserve</b> dengan mengetikkan “Rserve()” pada R Console lalu enter.
+        </li>
+        <li>
+            <b>Buka Tableau</b> dan pilih menu Help &gt; Setting and Performance &gt; Rserve.
+        </li>
+        <li>
+            Pada window <b>Manage Analytics Extension Connection</b>, masukkan “localhost” pada Hostname dan 6311 pada Port dan pilih Save.
+        </li>
+        <iframe src="https://drive.google.com/file/d/1NVYgYgY8XyETsF8pk6-8087FFEOGCwaF/preview" width="100%" height="300px" frame-border="0" alt="RServe Connection"></iframe>
+        
+        <li>
+            Untuk memastikan apakah koneksi berhasil dapat mengklik “Test Connection” dan akan muncul pop-up seperti gambar di bawah ini.
+        </li>
+        <iframe src="https://drive.google.com/file/d/1ifomVLoLpzZbu9a-Bb1g1dp0dBAj58tr/preview" width="100%" height="150px" frame-border="0" alt="Action Completed"></iframe>
+        
+        <li>
+            <b>Menampilkan Korelasi</b>
+        </li>
+        <ol type="a">
+            <li>Untuk menampilkan korelasi antara jumlah review dengan harga, pada menu pilih Analysis > Create Calculated Field.</li>
+            <p>Masukkan nama “Correlation” lalu masukkan sintaks berikut:</p>
+            <p>
+                <font style="color: green;">SCRIPT_REAL&lpar;"</font>
+            </p>
+            <p>
+                <font style="color: green;">cor(.arg1, .arg2)</font>
+            </p>
+            <p>
+                <font style="color: green;">", SUM([Price]), SUM([Number Of Reviews])&rpar;</font>
+            </p>
+            <iframe src="https://drive.google.com/file/d/1px20wAy-yBPdfB9iYhLG4hJ1loaEvKQ0/preview" width="100%" height="300px" frame-border="0" alt="Script Correlation"></iframe>
+
+            <li>Sebelum menekan OK, pilih pada “Default Table Calculation” dan ganti opsi dari Automatic ke Host Id, lalu klik OK.</li>
+            <iframe src="https://drive.google.com/file/d/1tWftYvhFw_RKY49WcA-UlGgvFKa-kiT9/preview" width="100%" height="300px" frame-border="0" alt="Table Calculation"></iframe>
+
+            <li>Drag-and-drop “Price” dan “Room Type” pada panel “Columns”.</li>
+            <li>Drag-and-drop “Number of Review” pada panel “Rows”.</li>
+            <iframe src="https://drive.google.com/file/d/1XKgfFPq9wQvKJrMNoPn_VL8TGlgD7GfR/preview" width="100%" height="150px" frame-border="0" alt="Column and Row"></iframe>
+            
+            <li>Drag-and-drop “Host Id” dan “Correlation” pada panel “Marks Card”.</li>
+            <li>
+                Pilih ikon <iframe src="https://drive.google.com/file/d/1Md2PWmWa_NWzCMR-kj_D_IYc3UQwa4F1/preview" width="20px" height="20px" style="vertical-align: middle;" frame-border="0" alt="Icon Correlation"></iframe>
+                pada “Correlation” yang terletak di “Mark Card” dan ganti menjadi “Color”.
+            </li>
+            <iframe src="https://drive.google.com/file/d/1gg76GZRdfe46_mi_8z2bfQlxDG23u5CD/preview" width="100%" height="300px" frame-border="0" alt="Marks Card"></iframe>
+
+            <li>Pilih pada “Correlation” yang terletak di “Mark Card”, lalu pilih “Discrete” untuk mengganti step warna pada legenda.</li>
+            <iframe src="https://drive.google.com/file/d/1alQv8ZvtVI_0YUer_K1MfHWk4VSH_rK1/preview" width="100%" height="300px" frame-border="0" alt="Discrete Legend"></iframe>
+        </ol>
+
+        <li>
+            <b>Menampilkan Korelasi Minimum Nights dan Price</b>
+        </li>
+        <ol type="a">
+            <li>Untuk menampilkan korelasi antara jumlah minimal malam menginap dengan harga, pada menu pilih Analysis &gt; Create Calculated Field.</li>
+            <li>Masukkan nama “Correlation Night-Price” lalu masukkan sintaks berikut:</li>
+            <p>
+                <font style="color: green;">SCRIPT_REAL&lpar;"</font>
+            </p>
+            <ul class="no-bullets">
+                <font style="color: green;">cor(.arg1, .arg2)</font>
+            </ul>
+            <p>
+                <font style="color: green;">", SUM([Price]), SUM([Minimum Nights])&rpar;</font>
+            </p>
+            <iframe src="https://drive.google.com/file/d/1kP-7Zy2-dUoa1ky1dYOaEaK4nG5IiLmk/preview" width="100%" height="300px" frame-border="0" alt="Correlation Night-Price”"></iframe>
+
+            <li>Sebelum menekan OK, pilih pada “Default Table Calculation” dan ganti opsi dari Automatic ke Host Id, lalu klik OK.</li>
+            <iframe src="https://drive.google.com/file/d/1mGItsjV-diiN0ITlXvefvr_xHViJhSM2/preview" width="100%" height="300px" frame-border="0" alt="Table Calculation_2"></iframe>
+
+            <li>Drag and drop “Price” dan “Room Type” pada panel “Columns”.</li>
+            <li>Drag and drop “Minimum Nights” pada panel “Rows”.</li>
+            <iframe src="https://drive.google.com/file/d/1wJHrTRWkVcGzPmA1Kzpa5T-65QqjEZ_e/preview" width="100%" height="150px" frame-border="0" alt="Column and Row_2"></iframe>
+
+            <li>Drag and drop “Host Id” dan “Correlation Night-Price” pada panel “Marks Card”.</li>
+            <li>Pilih ikon pada “Correlation Night-Price” yang terletak di “Mark Card” dan ganti menjadi “Color”.</li>
+            <iframe src="https://drive.google.com/file/d/1yjAR6EY68m7psnGdlBIi07Hdc-j-UyzD/preview" width="100%" height="300px" frame-border="0" alt="Marks Card_2"></iframe>
+
+            <li>Pilih pada “Correlation Night-Price” yang terletak di “Mark Card”, lalu pilih “Discrete” untuk mengganti step warna pada legenda.</li>
+            <iframe src="https://drive.google.com/file/d/1At2JEioxyuaEBtFWx3SjnO6_V8CbSBMk/preview" width="100%" height="300px" frame-border="0" alt="Discrete Legend_2"></iframe>
+        </ol>
+
+        <p>
+            Contoh lengkap penggunaan R pada Tableau, dapat dilihat pada video di bawah ini:
+        </p>
+        <iframe src="https://drive.google.com/file/d/1SO2QAfQliWZAaRBK4T9U-I_R075gmGK0/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+    </ol>
+
+</div>

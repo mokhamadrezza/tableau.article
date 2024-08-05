@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizing Data with Tableau</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="Judul">Visualizing Data with Tableau</h1>
+        </div>
+<style>
+    
+body{
+    background-color: #fff;
+}
+.container{
+    background-color: #fff;
+    padding-top: 3cm;
+    padding-left: 4cm;
+    padding-right: 3cm;
+    padding-bottom: 3cm;
+    max-width: 100%;
+    display: contents;
+}
+
+.container .header{
+    color: black;
+}
+
+.Judul{
+    font-size: 28pt;
+    text-align: left;
+    font-weight: bolder;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-family: Calibri, Arial, sans-serif;
+    max-width: 100%;
+}
+
+.content-box{
+    max-width: 100%;
+    min-width: 50%;
+    border: 2px solid #4471C4;
+    background-color: #fff;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 12pt;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 10px;
+    text-align: justify;
+}
+
+.content-box h2{
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    max-width: 100%;
+}
+
+.content-box ul{
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    max-width: 100%;
+}
+
+.content-box ul li{
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+
+.no-bullets{
+    list-style-type: none;
+    padding-left: 0;
+    max-width: 100%;
+}
+
+.no-bullets ul{
+    padding-left: 30px; /* Menambahkan indentasi untuk daftar bersarang */
+    max-width: 85%;
+}
+
+.note-box{
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #000;
+    background-color: #CFE1F3; /* Warna latar belakang seperti catatan */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    font-family: Calibri, Arial, sans-serif;
+    position: relative;
+}
+
+.note-box h2{
+    margin-top: 0;
+    max-width: fit-content;
+    font-size: 26px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+}
+
+.note-box p{
+    margin: 0;
+    max-width: fit-content;
+    font-size: 18px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+}
+/* Style for h1 */
+h1{
+    font-size: 20pt; /* Ukuran font 20 */
+    font-weight: bolder;
+    font-family: Calibri, Arial, sans-serif;
+    color: #1f2855;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    text-align: justify;
+    max-width: 100%;
+}
+/* Style for h2 */
+h2{
+    font-size: 14pt; /* Ukuran font 18 */
+    font-weight: bolder;
+    font-family: Calibri, Arial, sans-serif;
+    margin-top: 15px;
+    margin-right: 10px;
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    text-align: justify;
+    max-width: 100%;
+}
+
+/* Style for h3 */
+h3 {
+    font-size: 12pt;
+    font-weight: bold;
+    font-family: Calibri, Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    line-height: 1.5; /* Jarak spasi 1/5 */
+    text-align: justify;
+    max-width: 100%;
+}
+/* Style for p */
+p{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    margin-right: 10px;
+    max-width: 100%;
+}
+/* Style for ul and ol */
+ul, ol{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    max-width: 90vw;
+}
+/* Style for li */
+li{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    margin-right: 10px;
+    max-width: 100%;
+}
+
+.small-text{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: center;
+    font-size: 10pt;
+}
+
+.Tools{
+    max-width: 85%;
+    height: auto;
+    display: block;
+    margin-left: 30%;
+    margin-top: 15pt;
+    margin-bottom: 15pt;
+}
+
+.Tipe{
+    max-width: 85%;
+    height: auto;
+    display: block;
+    margin-left: 0%;
+    margin-top: 15pt;
+    margin-bottom: 15pt;
+}
+
+iframe{
+    max-width: 100%;
+    min-height:auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #2796a3;
+    color: white;
+    text-align: center;
+}
+tr:hover {
+    background-color: beige;
+}
+
+font {
+    max-width: 100%;
+}
+
+</style>
+        <div class="content-box"> <!-- Berisi Poin-poin Konten-->
+            <h2>
+                <img src="https://drive.google.com/thumbnail?id=1OSwy6Vn5jv8ERj5uV-d5abA8LFGNXV9x" alt="Content Image" style="vertical-align: middle; margin-right: 10px; max-width: 40px; max-height: 40px; padding-top: 10px;">Content
+            </h2>
+            <ul class="no-bullets">
+                <a href="#dataset-dalam-tableau" target="_blank">Dataset dalam Tableau</a>
+                    <ul class="no-bullets">
+                        <li>
+                            <a href="#definisi-dataset" target="_blank">Definisi Dataset</a>
+                        </li>
+                        <li>
+                            <a href="#jenis-dataset" target="_blank">Jenis-Jenis Dataset</a>
+                        </li>
+                        <li>
+                            <a href="#format-dataset" target="_blank">Format Dataset</a>
+                        </li>
+                    </ul>
+
+                <a href="#visualisasi-dengan-tableau" target="_blank">Visualisasi dengan Tableau</a>
+                    <ul class="no-bullets">
+                        <li>
+                            <a href="#menghubungkan-data" target="_blank">Menghubungkan Data ke Tableau</a>
+                        </li>
+                        <li>
+                            <a href="#membangun-histogram" target="_blank">Membangun Histogram</a>
+                        </li>
+                        <li>
+                            <a href="#membangun-scatter-plot" target="_blank">Membangun Scatter Plot</a>
+                        </li>
+                        <li>
+                            <a href="#membangun-boxplot" target="_blank">Membangun Box Plot</a>
+                        </li>                   
+                    </ul>
+
+                <a href="#dashboard-tableau" target="_blank">Dashboard dalam Tableau</a>
+                    <ul class="no-bullets">
+                        <li>
+                            <a href="#tableau-dashboard">Tableau Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#membangun-dashboard">Membangun Dashboard dengan Tableau</a>
+                        </li>
+                    </ul>
+            </ul>
+
+        </div>
+
+        <div class="content-box">
+            <h1 id="dataset-dalam-tableau">Dataset dalam Tableau</h1>
+            <h2 id="definisi-dataset">Definisi Dataset</h2>
+            <p>
+                <b>Dataset</b> adalah <b>kumpulan data</b> yang disusun secara terstruktur dan terdiri dari satu atau lebih catatan/data. 
+                Dataset biasanya dipresentasikan dalam bentuk tabel, yaitu baris dan kolom, dan berisi lebih dari satu variabel yang menyangkut suatu topik tertentu. 
+                <b>Dataset</b> menjadi <b>dasar</b> bagi <b>proses pengambilan keputusan</b> yang berdasarkan data, yang memungkinkan pengguna untuk <b>menggali wawasan baru, mengidentifikasi tren, dan menjawab pertanyaan bisnis</b> melalui visualisasi yang mudah dimengerti. 
+                Dataset dalam Tableau dapat diperoleh dari berbagai sumber data seperti <b>Excel, CSV, remote database, dan lain-lain</b>. 
+                Dengan menggunakan dataset, pengguna Tableau dapat membuat dashboard yang menggabungkan beberapa visualisasi untuk memberikan pandangan menyeluruh tentang informasi yang terkandung dalam data.
+            </p>
+            
+            <h2 id="#jenis-dataset">Jenis-Jenis Dataset</h2>
+            <p>
+                Dalam Tableau, berbagai jenis dataset dapat digunakan untuk membuat visualisasi dan analisis yang kaya. Berikut adalah beberapa jenis dataset umum yang dapat digunakan dalam Tableau:
+            </p>
+            <ol type="1">
+                <li>Numerical Dataset</li>
+                <p>
+                    <b>Numerical dataset</b> adalah jenis dataset yang terdiri dari data angka atau nilai numerik. Dataset ini terdiri dari kolom-kolom yang berisi angka-angka yang dapat diukur atau dihitung. 
+                    Jenis dataset ini sangat umum dalam analisis data dan visualisasi karena angka-angka numerik memungkinkan untuk dilakukan berbagai jenis perhitungan, perbandingan, dan analisis statistik.
+                </p>
+                    <p>
+                        <b>Contoh dataset numerik</b>:
+                    </p>
+                    <ul>
+                        <li><b>Data Keuangan</b>, seperti pendapatan, biaya, dan laba.</li>
+                        <li><b>Data Waktu</b>, seperti harga saham harian.</li>
+                        <li><b>Data Ilmiah</b>, seperti suhu, tekanan, atau kecepatan.</li>
+                        <li><b>Data Statistik</b>, seperti skor ujian siswa</li>
+                    </ul>
+                <p>
+                    Dalam Tableau, dataset numerik dapat digunakan untuk membuat berbagai jenis visualisasi, seperti:
+                    <ol type="a">
+                        <li><b>Grafik Batang (Bar Chart)</b>: Membandingkan nilai numerik di antara kategori atau periode waktu yang berbeda.</li>
+                        <li><b>Diagram Garis (Line Chart)</b>: Menggambarkan perubahan nilai numerik seiring waktu atau variabel lain.</li>
+                        <li><b>Histogram</b>: Memvisualisasikan distribusi dta numerik dengan mengelompokkan nilai-nilai dalam interval dan menunjukkan frekuensi kemunculan di setiap interval.</li>
+                        <li><b>Box Plot</b>: Memberikan gambaran tentang distribusi, kuartil, dan nilai-nilai ekstrem dalam data numerik.</li>
+                        <li><b>Heatmap:</b> Memvisualisasikan matriks data numerik dengan warna yang menggambarkan nilai intensitas.</li>
+                        <li><b>Scatter Plot</b>: menunjukkan hubungan antara dua variabel numerik dan dapat membantu mengidentifikasi pola atau korelasi di antara mereka.</li>
+                    </ol>
+                </p>
+
+                <li>Categorical Dataset</li>
+                <p>
+                    <b>Categorical dataset</b> adalah jenis dataset yang terdiri dari data yang dikelompokkan ke dalam <b>kategori</b> atau <b>label diskret</b>. 
+                    <b>Data kategori</b> ini <b>mewakili atribut atau variabel yang tidak memiliki urutan alami</b>, tetapi menggambarkan atribut atau kelompok yang berbeda. 
+                    <b>Dataset kategorikal</b> sering digunakan untuk <b>menganalisis data</b> yang dapat dijelaskan <b>dalam bentuk klasifikasi atau pengelompokan</b>.
+                </p>
+                <p>
+                    <b>Contoh dataset kategorikal</b>:
+                </p>
+                <ul>
+                    <li><b>Data jenis kelamin</b> (misalnya, “Laki-laki” dan “Perempuan”).</li>
+                    <li><b>Kategori produk</b>.</li>
+                    <li><b>Nama kota atau negara</b>.</li>
+                    <li><b>Tingkat pendidikan</b> (seperti “SD”, “SMP”, “SMA”).</li>
+                    <li><b>Status pernikahan</b> (“Belum Menikah”, “Menikah”, “Cerai”).</li>
+                </ul>
+                <p>
+                    Dalam Tableau, dataset kategorikal dapat digunakan untuk membuat berbagai jenis visualisasi, seperti:
+                    <ol type="a">
+                        <li><b>Grafik batang (Bar Chart)</b>: Membandingkan jumlah atau proporsi dalam kategori yang berbeda.</li>
+                        <li><b>Diagram Lingkaran (Pie Chart)</b>: Menunjukkan proporsi setiap kategori dalam keseluruhan.</li>
+                        <li><b>Bar Chart Grouped/Stacked</b>: Membantu membandingkan kategori-kategori di beberapa dimensi yang berbeda.</li>
+                        <li><b>Peta Choropleth</b>: Jika data kategorikal terkait dengan lokasi geografis, memvisualisasikan distribusi kategori di berbagai wilayah.</li>
+                        <li><b>Word Cloud</b>: Memvisualisasikan frekuensi kata-kata atau label dalam dataset kategorikal.</li>
+                    </ol>
+                </p>
+
+                <li>Temporal Dataset</li>
+                <p>
+                    <b>Temporal dataset</b> adalah jenis dataset yang <b>berfokus pada data yang memiliki dimensi waktu atau tanggal</b>. 
+                    Data dalam dataset ini dicatat dan dikumpulkan pada titik-titik waktu tertentu, dan biasanya berurutan secara kronologis. 
+                    Analisis data temporal memungkinkan pemahaman tentang bagaimana nilai-nilai atau peristiwa berubah seiring berjalannya waktu, serta pengidentifikasian tren, pola musiman, atau peristiwa khusus.
+                </p>
+                <p>
+                    <b>Contoh dataset temporal</b>:
+                </p>
+                <ul>
+                    <li><b>Data harga saham harian</b>.</li>
+                    <li><b>Data cuaca harian</b>.</li>
+                    <li><b>Data penjualan bulanan</b>.</li>
+                    <li><b>Data penggunaan situs web per jam</b>.</li>
+                    <li><b>Data populasi tahunan</b>.</li>
+                </ul>
+                <p>
+                    Dalam Tableau, dataset temporal memungkinkan untuk membuat berbagai jenis visualisasi dan analisis berbasis waktu, seperti:
+                    <ol type="a">
+                        <li><b>Line Chart</b>: Memplot data berdasarkan dimensi waktu.</li>
+                        <li><b>Area Chart</b>: Menunjukkan data seiring waktu dengan area di bawah garis yang diwarnai.</li>
+                        <li><b>Bar Chart dengan Waktu</b>: Membandingkan nilai numerik dalam kategori waktu yang berbeda.</li>
+                        <li><b>Gantt Chart</b>: Menggambarkan jadwal atau rangkaian peristiwa dalam bentuk grafik batang sepanjang waktu.</li>
+                    </ol>
+                </p>
+
+                <li>Textual Dataset</li>
+                <p>
+                    <b>Textual dataset</b> adalah jenis dataset yang <b>berisi data dalam bentuk teks</b>. Dataset ini terdiri dari kalimat, paragraf, atau dokumen yang dapat berisi informasi, deskripsi, ulasan, komentar, atau konten teks lainnya. 
+                    Analisis teks bertujuan untuk menggali wawasan dari data teks ini, seperti mengidentifikasi sentimen, mengelompokkan topik, atau melakukan analisis keterkaitan kata-kata.
+                </p>
+                <p>
+                    <b>Contoh textual dataset</b>:
+                </p>
+                <ul>
+                    <li><b>Teks berita</b>.</li>
+                    <li><b>Ulasan produk</b>.</li>
+                    <li><b>Transkrip wawancara</b>.</li>
+                    <li><b>Tweet di media sosial</b>.</li>
+                    <li><b>Konten web</b>.</li>
+                    <li><b>Dokumen akademik</b>.</li>
+                </ul>
+                <p>
+                    Dalam Tableau, beberapa contoh visualisasi yang dapat dilakukan dengan dataset tekstual meliputi:
+                    <ol type="a">
+                        <li><b>Word Cloud</b>: Menganalisis korelasi antara kata-kata dalam teks.</li>
+                        <li><b>Korelasi Kata-Kata</b>: Melihat bagaimana penggunaan kata-kata tertentu berubah seiring waktu.</li>
+                    </ol>
+                </p>
+            </ol>
+
+            <h2 id="format-dataset">Format Dataset</h2>
+            <p>
+                Dalam Tableau, dataset dikelompokkan menjadi dua berdasarkan format dataset yaitu dataset terstruktur dan dataset tidak terstruktur. Berikut adalah beberapa perbedaannya:
+            </p>
+            <table border="1", cellpadding="8", style="vertical-align: middle;">
+                <tr>
+                    <th><b>Komponen</b></th>
+                    <th><b>Structured</b></th>
+                    <th><b>Unstructured</b></th>
+                </tr>
+                <tr>
+                    <td><b>Format</b></td>
+                    <td>Diatur dalam format tabel dengan baris dan kolom</td>
+                    <td>Tidak diatur dalam format tabel yang jelas</td>
+                </tr>
+                <tr>
+                    <td><b>Keterhubungan dan Relasi</b></td>
+                    <td>Memiliki relasi antara tabel atau kolom</td>
+                    <td>Tidak memiliki skema yang terstruktur.</td>
+                </tr>
+                <tr>
+                    <td><b>Penyimpanan</b></td>
+                    <td>Membutuhkan lebih sedikit ruang penyimpanan</td>
+                    <td>Membutuhkan lebih banyak ruang penyimpanan</td>
+                </tr>
+                <tr>
+                    <td><b>Pemrosesan dan Analisis</b></td>
+                    <td>Mendukung analisis data yang lebih mudah.</td>
+                    <td>Melibatkan teknik pemrosesan khusus.</td>
+                </tr>
+                <tr>
+                    <td><b>Implementasi</b></td>
+                    <td>Data tabular yang memuat data numerik, tanggal, waktu, teks</td>
+                    <td>Foto, gambar, suara, video, e-mail, chat</td>
+                </tr>
+            </table>   
+
+        <p>
+            <div class="note-box"> <!-- Notes Box -->
+                <h2>
+                    <img src="https://drive.google.com/thumbnail?id=1u0BdBLr-b-GNRs-OwQ11Ruv183nuTpvu" alt="Notes Image" style="vertical-align: top; margin-right: 10px; max-width: 30px; max-height: 30px; padding-top: 5px;">Notes
+                </h2>
+                <p>
+                    Dataset terstruktur membutuhkan lebih sedikit ruang penyimpanan dan mendukung analisis yang lebih mudah, sementara dataset tidak terstruktur memerlukan teknik khusus dan lebih banyak ruang penyimpanan.
+                </p>
+        </div>
+        </p>
+
+        <h1 id="visualisasi-dengan-tableau">Visualisasi dengan Tableau</h1>
+        <h2 id="menghubungkan-data">Menghubungkan Data ke Tableau</h2>
+        <p>
+            Untuk memulai visualisasi data, berikut adalah langkah-langkah untuk menghubungkan dataset Superstore yang telah diunduh ke dalam Tableau:
+        </p>
+
+        <ol type="1">
+            <li><b>Buka program Tableau</b> yang telah terinstal.</li>
+
+            <li>Pada <b>panel "Connect"</b> di sisi kiri halaman utama, pilih tautan <b>"Microsoft Excel"</b> di bawah bagian <b>"To File"</b>.</li>
+            <iframe src="https://drive.google.com/file/d/1Kuz_3SD91zZj5tu1waYUklYZ-4qYK__d/preview" width="100%" height="200px" alt="Menghubungkan Data ke Tableau_1"></iframe>
+
+            <li>Jendela <b>"Open"</b> akan terbuka, <b>pilih file Excel dataset</b> yang sesuai.</li>
+            <iframe src="https://drive.google.com/file/d/1zpirH9gPPTiWNQjcI_0DoptYtrGncgta/preview" width="100%" height="250px" alt="Menghubungkan Data ke Tableau_2"></iframe>
+
+            <li>Setelah memilih file, tampilan akan berubah seiring dengan proses impor data. Pilih <b>lembar kerja "Order" dari panel "Sheets"</b> dengan drag-and-drop ke bagian bawah label "Global Superstore".</li>
+            <iframe src="https://drive.google.com/file/d/1kZDbd4v8LcVn0qYmch2klMVQOGLgn8s3/preview" width="100%" height="200px" alt="Menghubungkan Data ke Tableau_3"></iframe>
+
+            <li>Setelah memilih lembar kerja "Orders", data dan variabel yang ada dalam lembar kerja "Orders" akan muncul. Untuk <b>memulai proses pembangunan visualisasi data, beralih ke tautan "Sheet 1"</b>.</li>
+            <iframe src="https://drive.google.com/file/d/1y1tGdlkILUFH2mS-RbaoZy2mokWjvh9O/preview" width="100%" height="200px" alt="Menghubungkan Data ke Tableau_4"></iframe>
+        </ol>
+
+        <p>
+            Untuk mempelajari cara menghubungkan data dari Excel ke Tableau, pengguna dapat melihat video di bawah ini:
+        </p>
+        <iframe src="https://drive.google.com/file/d/1FtKZceS4DRKkqdvYCtmQxjyyBXnxH9R1/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+        <h2 id="membangun-histogram">Membangun Histogram</h2>
+        <p>Untuk membuat histogram dari penjualan/Sales:</p>
+        <ol type="1">
+            <li><b>Klik 2x pada Sheet 1, ganti labelnya menjadi “Histogram of Sales”</b>.</li>
+
+            <li>Pilih <b>“Sales”</b> pada <b>panel “Tables”</b> kemudian pada <b>panel “Show Me”</b> pilih <b>ikon <iframe src="https://drive.google.com/file/d/1QCdc8LQ4mIRQ9WC-A-j94LTXzHRBgKgD/preview" width="25" height="25" style="vertical-align: middle;" frame-border="0"></iframe>. Histogram dari Sales akan muncul.</b></li>
+            <iframe src="https://drive.google.com/file/d/1kiuuGKfj1GEvpiOGrzbRd5EtWd-Ipwec/preview" width="100%" height="250px" alt="Membangun Histogram_1"></iframe>
+        </ol>
+
+        <p>Agar lebih paham cara membuat histogram pada Tableau, pengguna dapat melihat video di bawah ini:</p>
+        <iframe src="https://drive.google.com/file/d/1rdEdB1whcrwW43gXlIDbBxcKczh_-2Nv/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+        <h2 id="membangun-scatter-plot">Membangun Scatter Plot</h2>
+        <p>Untuk membuat scatter plot antara Sales dan Profit:</p>
+        <ol type="1">
+            <li><b>Pada menu “Worksheet” pilih “New Worksheet”</b> untuk menambahkan sheet baru,</li>
+            <iframe src="https://drive.google.com/file/d/1T2FdSYJoOYW3R5tHFCHHmNLM6k6OFRCR/preview" width="100%" height="150px" alt="Membangun Scatterplot_1"></iframe>
+
+            <p>
+                lalu <b>klik 2x pada sheet 2</b> untuk mengganti label menjadi <b>“Sales vs Profit Scatter Plot”</b>.
+            </p>
+
+            <li><b>Pilih “Profit”</b> dan “Sales” pada <b>panel “Tables”</b> dengan menahan tombol <b>CTRL</b> pada keyboard, <b>pada panel “Show Me” pilih ikon <iframe src="https://drive.google.com/file/d/1C1Wj9E0tG4wGyUmuzfEJGv-wYKRMNhG0/preview" width="25" height="25" style="vertical-align: middle;" frame-border="0"></iframe>.</b></li>
+
+            <li><b>Secara default, ukuran (Measure)</b> yang digunakan pada Tableau adalah <b>Sum atau jumlah</b>. <b>Ubah ke dimensi</b> klik <iframe src="https://drive.google.com/file/d/1qniyoLT38_foOxXR01XZP8uo6OsyhBxl/preview" width="55" height="25" style="vertical-align: middle;" frame-border="0"></iframe> dan pilih opsi <b>Dimension pada pop-up menu</b> untuk <b>variabel Sales dan Profit</b>.</li>
+        </ol>
+
+        <p>Agar lebih paham cara membuat scatter plot pada Tableau, pengguna dapat melihat video di bawah ini:</p>
+        <iframe src="https://drive.google.com/file/d/1vr56PQcZlpogJP6MG-8cJ7iin-XJSqF2/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+        <h2 id="membangun-boxplot">Membangun Box Plot</h2>
+        <p>Untuk membuat box plot dari variabel Discount:</p>
+        <ol type="1">
+            <li>Pada menu <b>“Worksheet” pilih “New Worksheet”</b> untuk menambahkan sheet baru, <b>klik 2x pada sheet 2</b>, dan <b>ganti label tersebut menjadi “Box plot of Discount”</b>.</li>
+            <iframe src="https://drive.google.com/file/d/1ndMlqjZbA_fWyJvyhnMMWEyFYAZq_4JZ/preview" width="100%" height="100px" alt="Membangun Boxplot_1"></iframe>
+            <li><b>Pilih “Discount”</b> dan <b>“Row ID”</b> pada <b>panel “Tables”</b>, selanjutnya pada <b>panel “Show Me” pilih ikon Box Plot</b>.</li>
+            <li>Box plot variabel “Discount” akan muncul.</li>
+            <iframe src="https://drive.google.com/file/d/1ByTCWGDwrIBH7MEIJ4twYizpoWS19Nk0/preview" width="100%" height="300px" alt="Membangun Boxplot_2"></iframe>
+        </ol>
+
+        <p>Agar lebih paham cara membuat Box Plot pada Tableau, pengguna dapat melihat video di bawah ini:</p>
+        <iframe src="https://drive.google.com/file/d/1vNsa8h2ilvpkb_wNlpSt9jnYIi6-6_-f/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+        <p>
+            <div class="note-box"> <!-- Notes Box -->
+                <h2>
+                    <img src="https://drive.google.com/thumbnail?id=1u0BdBLr-b-GNRs-OwQ11Ruv183nuTpvu" alt="Notes Image" style="vertical-align: top; margin-right: 10px; max-width: 30px; max-height: 30px; padding-top: 5px;">Notes
+                </h2>
+                <p><b>Box plot</b> sangat berguna untuk <b>memahami distribusi dan outliers dalam data</b>.</p>
+        </div>
+        </p>
+
+        <h1 id="dashboard-tableau">Dashboard dalam Tableau</h1>
+        <h2 id="tableau-dashboard">Tableau Dashboard</h2>
+        <p>
+            <b>Dashboard</b> pada Tableau adalah <b>tampilan visual</b> yang <b>terdiri dari berbagai elemen visual seperti grafik, diagram, peta, teks, dan gambar, yang dirancang untuk menyajikan informasi dengan cara yang mudah dipahami dan interaktif</b>. 
+            Dashboard Tableau memungkinkan pengguna untuk membuat laporan yang menarik secara visual, menampilkan data yang mudah dicerna, dan membantu memperoleh insight dari data yang kompleks.
+        </p>
+        <p>
+            <b>Tujuan utama</b> dari dashboard pada Tableau adalah untuk <b>membantu pengambilan keputusan dengan menyajikan data yang kompleks secara intuitif dan mudah dimengerti</b>. 
+            <b>Dashboard</b> memungkinkan pengguna untuk <b>berinteraksi dengan data dengan cara mengklik, memfilter, atau memilih elemen visual tertentu</b> untuk melihat informasi yang lebih mendalam atau untuk mendapatkan pandangan yang berbeda terhadap data.
+        </p>
+
+        <h2 id="membangun-dashboard">Membangun Dashboard dengan Tableau</h2>
+        <p>
+            Untuk membangun dashboard menggunakan grafik visualisasi yang sudah ada:
+        </p>
+
+        <ol type="1">
+            <li><b>Membuat Dashbord Baru</b>:</li>
+            <ol type="a">
+                <li>Pada <b>menu “Dashboard”</b>, <b>pilih “New Dashboard”</b> untuk menambahkan dashboard baru.</li>
+                <li><b>Klik dua kali pada “dashboard 1”</b> dan <b>ganti labelnya menjadi “Super Store Dashboard”</b>.</li>
+                <iframe src="https://drive.google.com/file/d/1ClTyCb_oieAT4ehcai-9WNLo9Zxe1-M4/preview" width="100%" height="100px" alt="Membangun Dashboard_1"></iframe>
+            </ol>
+
+            <li><b>Menyesuaikan Ukuran Dashboard</b>:</li>
+            <ol type="a">
+                <li>Ubah ukuran dashboard menjadi <b>otomatis</b> agar memudahkan dalam mengaturnya sesuai dengan banyaknya visualisasi yang ditampilkan.</li>
+                <li>Pilih <b>“Size”</b> pada panel <b>“Dashboard”</b>, kemudian pilih <b>“Automatic”</b> pada <b>“Range”</b>.</li>
+                <iframe src="https://drive.google.com/file/d/1c6GgWGN9vIM8rwUFSTPTOyDPR-Vd9nna/preview" width="100%" height="300px" alt="Membangun Dashboard_2"></iframe>
+            </ol>
+
+            <li><b>Menambahkan Visualisasi ke Dashboard</b>:</li>
+            <ol type="a">
+                <li>Untuk membangun dashboard, <b>drag-and-drop visualisasi grafik</b> pada <b>panel “Sheet”</b>.</li>
+                <li>Sebagai contoh, pada modul ini akan dibangun dashboard dari <b>ketiga visualisasi sebelumnya: histogram, scatter plot, dan box plot</b>.</li>
+                <li><b>Pilih salah satu visualisasi</b> yang telah dibangun, <b>drag-and-drop pada panel “drop sheet here”</b>.</li>
+                <li>Visualisasi pada dashboard akan muncul.</li>
+                <iframe src="https://drive.google.com/file/d/1eoeJPceDZfEFBdNvKZ6nYzE1NPyNqqwK/preview" width="100%" height="250px" alt="Membangun Dashboard_3"></iframe>
+                <li><b>Tambahkan visualisasi lain</b> pada dashboard dengan <b>drag-and-drop seperti cara sebelumnya dan mengatur posisinya sesuai dengan preferensi</b> masing-masing. Misalnya, scatter plot dapat diletakkan di atas histogram.</li>
+                <iframe src="https://drive.google.com/file/d/1qy4yFItrYBRdOF5FHNZpOw-PaIRDvtRt/preview" width="100%" height="250px" alt="Membangun Dashboard_3"></iframe>
+            </ol>
+
+            <p>Untuk panduan jelas membuat dashboard di Tableau, pengguna bisa melihat video di bawah ini:</p>
+            <iframe src="https://drive.google.com/file/d/1_9fO8Ac0QcCtNE643iztrpjP9kCwi2HC/preview" width="100%" height="400px" frame-border="none" allow="autoplay; fullscreen"></iframe>
+
+        </ol>
+
+        <p>
+            <div class="note-box"> <!-- Notes Box -->
+                <h2>
+                    <img src="https://drive.google.com/thumbnail?id=1u0BdBLr-b-GNRs-OwQ11Ruv183nuTpvu" alt="Notes Image" style="vertical-align: top; margin-right: 10px; max-width: 30px; max-height: 30px; padding-top: 5px;">Notes
+                </h2>
+                <p>Menggunakan <b>layout otomatis</b> dan drag-and-drop <b>memudahkan penyesuaian visualisasi pada dashboard dan memastikan semua elemen visual terlihat</b> dengan baik.</p>
+            </div>
+        </p>  
+
+    </div>
+</body>
+</html>

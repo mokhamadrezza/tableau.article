@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Tableau Functionalities</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="Judul">Advanced Tableau Functionalities</h1>
+        </div>
+<style>
+    
+body{
+    background-color: #fff;
+}
+.container{
+    background-color: #fff;
+    padding-top: 3cm;
+    padding-left: 4cm;
+    padding-right: 3cm;
+    padding-bottom: 3cm;
+    max-width: 100%;
+    display: contents;
+}
+
+.container .header{
+    color: black;
+}
+
+.Judul{
+    font-size: 28pt;
+    text-align: left;
+    font-weight: bolder;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-family: Calibri, Arial, sans-serif;
+    max-width: 100%;
+}
+
+.content-box{
+    max-width: 100%;
+    min-width: 50%;
+    border: 2px solid #4471C4;
+    background-color: #fff;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 12pt;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 10px;
+    text-align: justify;
+}
+
+.content-box h2{
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    max-width: 100%;
+}
+
+.content-box ul{
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    max-width: 100%;
+}
+
+.content-box ul li{
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+
+.no-bullets{
+    list-style-type: none;
+    padding-left: 0;
+    max-width: 100%;
+}
+
+.no-bullets ul{
+    padding-left: 30px; /* Menambahkan indentasi untuk daftar bersarang */
+    max-width: 100%;
+}
+
+.note-box{
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #000;
+    background-color: #CFE1F3; /* Warna latar belakang seperti catatan */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    font-family: Calibri, Arial, sans-serif;
+    position: relative;
+}
+
+.note-box h2{
+    margin-top: 0;
+    max-width: fit-content;
+    font-size: 26px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+}
+
+.note-box p{
+    margin: 0;
+    max-width: fit-content;
+    font-size: 18px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+}
+/* Style for h1 */
+h1{
+    font-size: 20pt; /* Ukuran font 20 */
+    font-weight: bolder;
+    font-family: Calibri, Arial, sans-serif;
+    color: #1f2855;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    text-align: justify;
+    max-width: 100%;
+}
+/* Style for h2 */
+h2{
+    font-size: 14pt; /* Ukuran font 18 */
+    font-weight: bolder;
+    font-family: Calibri, Arial, sans-serif;
+    margin-top: 15px;
+    margin-right: 10px;
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    text-align: justify;
+    max-width: 100%;
+}
+/*Style for h3 */
+h3 {
+    font-size: 12pt;
+    font-weight: bold;
+    font-family: calibri, Arial, sans-serif;
+    margin-top: 10px;
+    margin-right: 10px;
+    line-height: 1.5; /*Jarak spasi 1/5 */
+    text-align: justify;
+    max-width: 100%;
+
+}
+/* Style for p */
+p{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    margin-right: 10px;
+    max-width: 100%;
+}
+/* Style for ul and ol */
+ul, ol{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    max-width: 90vw;
+}
+/* Style for li */
+li{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    margin-right: 10px;
+    max-width: 100%;
+}
+
+.small-text{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: center;
+    font-size: 10pt;
+}
+
+.Tools{
+    max-width: 85%;
+    height: auto;
+    display: block;
+    margin-left: 30%;
+    margin-top: 15pt;
+    margin-bottom: 15pt;
+}
+
+.Tipe{
+    max-width: 85%;
+    height: auto;
+    display: block;
+    margin-left: 0%;
+    margin-top: 15pt;
+    margin-bottom: 15pt;
+}
+
+iframe{
+    max-width: 100%;
+    min-height:auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 10px;
+}
+th {
+    background-color: #2796a3;
+    color: white;
+    text-align: center;
+}
+td {
+    text-align: left;
+}
+tr:hover {
+    background-color: beige;
+}
+
+font {
+    max-width: 100%;
+}
+
+</style>
+
+<div class="content-box"> <!-- Berisi Poin-poin Konten-->
+    <h2>
+        <img src="https://drive.google.com/thumbnail?id=1OSwy6Vn5jv8ERj5uV-d5abA8LFGNXV9x" alt="Content Image" style="vertical-align: middle; margin-right: 10px; max-width: 40px; max-height: 40px; padding-top: 10px;">Content
+    </h2>
+    <ul class="no-bullets">
+        <a href="#scenario-resources" target="_blank">Advanced Analystics Scenarios dan Resources</a>
+        <ul class="no-bullets">
+            <li>
+                <a href="#advanced-analytics" target="_blank">Advanced Analytics pada Tableau</a>
+            </li>
+            <li>
+                <a href="#fitur-advanced-analytics" target="_blank">Fitur Advanced Analytics dalam Tableau</a>
+            </li>      
+        </ul>
+    
+        <a href="#kalkulasi-tableau" target="_blank">Membuat Kalkulasi pada Tableau</a>
+        <ul class="no-bullets">
+            <li>
+                <a href="#menghubungkan-data" target="_blank">Menghubungkan Data ke Tableau</a>
+            </li>
+            <li>
+                <a href="#visualisasi-kalkulasi" target="_blank">Visualisasi Kalkulasi Sederhana</a>
+            </li>
+            <li>
+                <a href="#kalkulasi-tabel" target="_blank">Kalkulasi Tabel pada Tableau</a>
+            </li>
+            <li>
+                <a href="#level-of-detail" target="_blank">Level Of Detail (LOD) Expressions pada Tableau</a>
+            </li>
+        </ul>            
+
+    </ul>
+    
+</div>
+
+<div class="content-box">
+    <h1 id="scenario-resources">Advanced Analytics Scenarios dan Resources</h1>
+    <h2 id="advanced-analytics">Advanced Analytics pada Tableau</h2>
+    <p>
+        <b>Advanced Analytics</b> adalah pemeriksaan data atau konten secara otonom atau semi-otonom menggunakan teknik atau alat yang canggih (Faraz 2022). 
+        Teknik ini bertujuan untuk mengekstraksi informasi yang berguna untuk memahami tren dan perilaku yang direpresentasikan oleh data tersebut.
+    </p>
+
+    <p>
+        <div class="note-box"> <!-- Notes Box -->
+            <h2>
+                <img src="https://drive.google.com/thumbnail?id=1u0BdBLr-b-GNRs-OwQ11Ruv183nuTpvu" alt="Notes Image" style="vertical-align: top; margin-right: 10px; max-width: 30px; max-height: 30px; padding-top: 5px;">Notes
+            </h2>
+            <p>
+                Teknik-teknik ini menggunakan Machine Learning dan Data Science seperti Predictive Analytics, Recommendation Systems, dan Statistical Forecasting untuk mengidentifikasi wawasan yang lebih dalam dari data.
+            </p>
+        </div>
+    </p>
+
+    <h2 id="fitur-advanced-analytics">Fitur Advanced Analytics dalam Tableau</h2>
+    <p>
+        Dalam Tableau, advanced analytics mencakup fitur-fitur berikut:
+    </p>
+    <ul type="disc">
+        <li>Segmentation dan Cohort Analysis</li>
+        <li>Scenario and What-If Analysis</li>
+        <li>Sophisticated Calculations and Statistical Functions</li>
+        <li>Time-Series and Predictive Analytics</li>
+        <li>R and Python Integration</li>
+
+    </ul>
+
+    <h3>Segmentation dan Cohort Analytics</h3>
+    <p>
+        Cohort Analysis adalah analisis unit tentang perilaku user, subscriber, atau konsumen, yang dilakukan secara mendalam untuk mendapatkan data terkait tingkat interaksi pelanggan maupun calon pelanggan.
+    </p>
+
+    <p>
+        <div class="note-box"> <!-- Notes Box -->
+            <h2>
+                <img src="https://drive.google.com/thumbnail?id=1u0BdBLr-b-GNRs-OwQ11Ruv183nuTpvu" alt="Notes Image" style="vertical-align: top; margin-right: 10px; max-width: 30px; max-height: 30px; padding-top: 5px;">Notes
+            </h2>
+            <p>
+                Cohort Analysis menggunakan fitur demografis umum yang difokuskan dalam kurun waktu tertentu dan bisa menjadi strategi untuk mengembangkan bisnis.
+            </p>
+        </div>
+    </p>
+
+    <p>Beberapa tipe Cohort Analysis:</p>
+    <ol type="1">
+        <li><b>Behavioral Cohort</b>: Mengkategorikan kelompok konsumen berdasarkan perilaku mereka.</li>
+        <li><b>Acquisition Cohort</b>: Menganalisis data berdasarkan waktu akuisisi konsumen.</li>
+        <li><b>Specific Customer Behavior</b>: Menganalisis perilaku konsumen berdasarkan kelompok yang berbeda.</li>
+    </ol>
+
+    <p>Untuk menggunakan cohort analysis:</p>
+    <ol type="1">
+        <li>Pilih <b>Analysis</b> &gt; <b>Create Calculated Field</b></li>
+        <iframe src="https://drive.google.com/file/d/1ieH9B6YixO2kCH7zuTfWlvy2h0S8WH9X/preview" width="100%" height="300px" frame-border="0" alt="Cohort_1"></iframe>
+
+        <li>Buat acquisition cohort dengan memasukkan sintaks berikut:</li>
+        <p style="color: #4471C4;"><b>DATETRUNC('month', {FIXED (CUSTOMER ID): MIN([Order Date])})</b></p>
+        <iframe src="https://drive.google.com/file/d/1thOolu9U8OjCgz34lBGasQb4bzr7_H3Q/preview" width="100%" height="300px" frame-border="0" alt="Cohort_2"></iframe>
+
+        <li>Klik OK dan cohort siap digunakan.</li>
+
+    </ol>
+
+    <p>Untuk mempelajari cara menggunakan cohort analysis, pengguna dapat melihat video di bawah ini:</p>
+    <iframe src="https://drive.google.com/file/d/1_FBn24h_sAZqFw9uBnIq6a9TmWgl1bo6/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+    <h3>Scenario and What-If Analysis</h3>
+    <p>
+        Analisis What-If adalah simulasi data intensif untuk memeriksa perilaku sistem yang kompleks. Di Tableau, ini dilakukan dengan menggunakan parameter dan kalkulasi. 
+        Contoh: Membuat parameter untuk tingkat inflasi dan menggunakan parameter ini dalam kalkulasi perkiraan penjualan.
+    </p>
+    <p>Jenis dari What-If Analysis:</p>
+    <ol type="1">
+        <li><b>IF</b>: Mengembalikan hasil jika kondisi terpenuhi.</li>
+        <p style="color: #4471C4;">IF [Sales] > 1000 THEN 'High Sales' END</p>
+
+        <li><b>IF &minus; ELSE</b>: Mengembalikan nilai yang telah ditetapkan jika kondisi tidak terpenuhi.</li>
+        <p style="color: #4471C4;">IF [Sales] > 1000 THEN 'High Sales' ELSE 'Low Sales' END</p>
+
+        <li><b>ELSE IF</b>: Mengevaluasi kondisi tambahan jika kondisi dalam pernyataan if sebelumnya bernilai false.</li>
+        <p style="color: #4471C4;">IF [Sales] > 1000 THEN 'High Sales' ELSEIF [Sales] > 500 THEN 'Medium Sales' ELSE 'Low Sales' END</p>
+    </ol>
+
+    <p>What-If-Analysis dapat digunakan dengan cara berikut:</p>
+    <ol type="1">
+        <li>Pilih <b>Analysis</b> &gt; <b>Create Calculated Field</b></li>
+        <iframe src="https://drive.google.com/file/d/1IDbix8yKjXgDvJe8GeSZUtcCeqesAYL0/preview" width="100%" height="300px" frame-border="0" alt="What-If_1"></iframe>
+
+        <li>Buat What-If-Analysis dengan membuat <b>pernyataan ELSEIF</b> menggunakan sintaks seperti di bawah ini:</li>
+        <p style="color: #4471C4;">IF [Sales] > 1000 THEN 'High Sales' ELSEIF [Sales] >= 500 THEN 'Medium Sales' ELSE 'Low Sales' END</p>
+        <iframe src="https://drive.google.com/file/d/1B1vw_52SMH7zY3onhk1z0j04ac87aAoP/preview" width="100%" height="300px" frame-border="0" alt="What-If_2"></iframe>
+
+        <li>Klik OK dan siap digunakan.</li>
+
+    </ol>
+
+    <p>Untuk mempelajari cara menggunakan What-If Analysis, pengguna dapat melihat video di bawah ini:</p>
+    <iframe src="https://drive.google.com/file/d/1VaJ4-BA2ITfmLTgkpdF68Tecd6tFY9BO/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+    <h3>Sophisticated Calculations dan Statistical Functions</h3>
+    <p>Tableau menyediakan berbagai fitur untuk melakukan perhitungan canggih dan fungsi statistik:</p>
+    <ol type="1">
+        <li><b>Calculated Fields</b>: Menghasilkan data baru dari data yang sudah ada.</li>
+        <li><b>Perhitungan Tabel</b>: Menggunakan fungsi agregasi seperti jumlah, rata-rata, persentil, dll.</li>
+        <li><b>Fungsi LOD (Level of Detail)</b>: Melakukan perhitungan pada level detail yang berbeda.</li>
+        <li><b>Perhitungan Prediktif</b>: Menggunakan MODEL_QUANTILE dan MODEL_PERCENTILE.</li>
+        <li><b>Fungsi Statistik</b>: Menyediakan fungsi seperti COVAR, CORR, MEDIAN, PERCENTILE, dll.</li>
+        <li><b>Perhitungan Logika dan String</b>: Menggunakan pernyataan logika seperti IF, ELSE IF, dan ELSE, atau fungsi string seperti CONTAINS, STARTSWITH, dan FIND.</li>
+    </ol>
+
+    <p>Sophisticated Calculation dan Statistical Function dapat ditemukan pada saat pengguna:</p>
+    <ol type="1">
+        <li>Memilih <b>Analysis</b> &gt; <b>Create Calculated Field</b></li>
+        <iframe src="https://drive.google.com/file/d/1fXKApSSl3lJUy1kcmDyBOOaaC9UNe2f-/preview" width="100%" height="300px" frame-border="0" alt="Sophisticated Calculation_1"></iframe>
+
+        <li>Klik tombol panah kanan pada calculated field, maka sophisticated calculation dan statistical function akan muncul.</li>
+        <iframe src="https://drive.google.com/file/d/1OpSMNMXdleofTwKMLHeaBpUQNvz4vxPl/preview" width="100%" height="300px" frame-border="0" alt="Sophisticated Calculation_2"></iframe>
+
+    </ol>
+
+    <p>Untuk mengetahui letak sophisticated calculation dan statistical function, pengguna dapat melihat video di bawah ini:</p>
+    <iframe src="https://drive.google.com/file/d/1Hu1o0VNVqWh_WmLNZgUJFDvTiyzDl6u_/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+    <h3>Time-Series dan Predictive Analytics in Tableau</h3>
+    <p>
+        Time Series adalah analisis untuk mengeksplorasi tren dan musiman dalam data. Tableau menyediakan antarmuka interaktif untuk melakukan Time-Series Analytics dan Forecasting.
+    </p>
+    <iframe src="https://drive.google.com/file/d/1Sj8F9T7Jia8PxblPWYnctmaBBW98o5nv/preview" width="100%" height="300px" frame-border="0" alt="Time-Series_1"></iframe>
+
+    <p>Untuk memahami letak time series di Tableau, pengguna dapat melihat video di bawah ini:</p>
+    <iframe src="https://drive.google.com/file/d/1ECPQDf_2vO98PUtxDrPkZ6JUHhnqHSW5/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+    <h3>Integrasi dengan R dan Python</h3>
+    <p>Tableau menyediakan integrasi dengan bahasa pemrograman R dan Python untuk analisis data yang lebih lanjut. Perbedaan antara R dan Python:</p>
+    <ol type="1">
+        <li><b>Bahasa Pemrograman R:</b></li>
+        <ol type="a">
+            <li>Digunakan untuk analisis statistik.</li>
+            <li>Banyak digunakan oleh akademisi dan peneliti.</li>
+            <li>Memberikan fleksibilitas menggunakan library yang tersedia.</li>
+        </ol>
+
+        <li><b>Bahasa Pemrograman Python:</b></li>
+        <ol type="a">
+            <li>Umumnya digunakan untuk keperluan data science.</li>
+            <li>Banyak digunakan oleh programming atau developer.</li>
+            <li>Memberikan fleksibilitas untuk membangun model baru dari awal.</li>
+        </ol>
+    </ol>
+
+    <p>Untuk melakukan integrasi ini, pengguna harus mengikuti langkah-langkah:</p>
+    <ol type="1">
+        <li>Pilih <b>Help</b> &gt; <b>Settings and Performance</b> &gt; <b>Manage Analytics Extension Connection</b>.</li>
+        <iframe src="https://drive.google.com/file/d/1hlLlB1pO4a4phjbX0hCY5TvcE1OyOCb1/preview" width="100%" height="300px" frame-border="0" alt="Integrasi dengan R_1"></iframe>
+
+        <li>Kemudian akan muncul window yang berisi beberapa connection termasuk R dan Python.</li>
+        <iframe src="https://drive.google.com/file/d/14TZoxyAGFh6pnB8FQMOHxh5ClDmuWsRE/preview" width="100%" height="300px" frame-border="0" alt="Integrasi dengan R_2"></iframe>
+    </ol>
+
+    <p>Untuk melakukan integrasi Tableau dengan R dan Python, pengguna dapat melihat video di bawah ini:</p>
+    <iframe src="https://drive.google.com/file/d/16IkGhJcGFfWuuxjtF6Nx6H7Y13tRTJAK/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+    
+    <h1 id="kalkulasi-tableau">Membuat Kalkulasi pada Tableau</h1>
+    <h2 id="menghubungkan-data">Menghubungkan Data ke Tableau</h2>
+    <p>
+        <b>Dataset Superstore</b> adalah salah satu open dataset yang tersedia pada platform Tableau yang memuat informasi tentang penjualan dan keuntungan Superstore. 
+        Untuk menghubungkan dataset ke Tableau:
+    </p>
+    <ol type="1">
+        <li><b>Buka Tableau</b>: Pilih <b>"Microsoft Excel"</b> pada panel <b>"Connect"</b>.</li>
+        <iframe src="https://drive.google.com/file/d/1Du1RpUeUNQqr43-yI2tVwyMNQsEYFV3S/preview" width="100%" height="300px" frame-border="0" alt="Dataset Tableau_1"></iframe>
+
+        <li><b>Pilih Lembar Kerja</b>: Pilih file Excel yang diinginkan.</li>
+        <iframe src="https://drive.google.com/file/d/19geU_uSN2RTG72tA_ee62bmUzZjfDqCN/preview" width="100%" height="300px" frame-border="0" alt="Dataset Tableau_2"></iframe>
+
+        <li><b>Impor Data</b>: Pilih lembar kerja <b>"Orders"</b> atau bisa drag-and-drop lembar kerja tersebut ke bagian bawah label <b>"Global Superstore"</b>.</li>
+        <iframe src="https://drive.google.com/file/d/1shevdJdCw0gbxoIjiqAfxlfjNnJ4qd5Z/preview" width="100%" height="300px" frame-border="0" alt="Dataset Tableau_3"></iframe>
+    </ol>
+
+    <h2 id="visualisasi-kalkulasi">Visualisasi Kalkulasi Sederhana</h2>
+    <p>Untuk membuat kalkulasi sederhana di Tableau:</p>
+    <ol type="1">
+        <li><b>Buat Calculated Field:</b></li>
+        <ol type="a">
+            <li>Pilih <b>Analisis</b> &gt; <b>Create Calculated Field</b>.</li>
+            <iframe src="https://drive.google.com/file/d/1ViZ235_F9qSmLXGqKQT4lKl_gcJSr96x/preview" width="100%" height="300px" frame-border="0" alt="Visualisasi Kalkulasi_1"></iframe>
+
+            <li>Beri nama calculated field, misalnya "Profit Ratio".</li>
+            <li>Masukkan rumus: <font style="color: #4471C4;">SUM([Profit])/SUM([Sales])</font>.</li>
+            <iframe src="https://drive.google.com/file/d/12Dyp8h1ZdCdV4xCwz39XQmSoGsaHpuJQ/preview" width="100%" height="300px" frame-border="0" alt="Visualisasi Kalkulasi_2"></iframe>
+
+            <li>Klik OK.</li>
+        </ol>
+        <li><b>Tambahkan Calculated Field ke Measures</b>: Kolom baru akan ditambahkan ke panel Data.</li>
+    </ol>
+
+    <p>Untuk mempelajari cara visualisasi kalkulasi sederhana, pengguna dapat melihat video di bawah ini:</p>
+    <iframe src="https://drive.google.com/file/d/1Fm2yjMvFfv9FC-Qr9XTSfChdCW0wqU9L/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+    <h2 id="kalkulasi-tabel">Kalkulasi Tabel pada Tableau</h2>
+    <ol type="1">
+        <li><b>Pilih Data</b>: Dari data panel, pilih <b>“Sales”</b> dan <b>“Order Date”</b>.</li>
+        <li><b>Buat Tabel Kalkulasi</b>: Pilih <b>tabel</b> pada panel "Show Me".</li>
+        <iframe src="https://drive.google.com/file/d/1ixtzq28Q6-KtOnLF8mv8c3IKuX68uGwo/preview" width="100%" height="300px" frame-border="0" alt="Visualisasi Kalkulasi_3"></iframe>
+
+        <li><b>Ubah Format</b>: Drag-and-drop “Order Date” ke panel <b>“Rows”</b> dan ubah dari “Year” ke “Month” atau “Quarter”.</li>
+        <iframe src="https://drive.google.com/file/d/1d84vdjjSnDQt9m4f8CHmMcc2Iwe-jUUU/preview" width="100%" height="300px" frame-border="0" alt="Visualisasi Kalkulasi_4"></iframe>
+    </ol>
+    
+    <p>Untuk mempelajari cara kalkulasi tabel, pengguna dapat melihat video di bawah ini:</p>
+    <iframe src="https://drive.google.com/file/d/1MvJzi54DVIxsptgsjZFDO4FrV0iBogl_/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+    <h2 id="level-of-detail">Level Of Detail (LOD) Expressions pada Tableau</h2>
+    <p>LOD expressions memungkinkan pengguna menghitung nilai pada tingkat detail yang berbeda:</p>
+    <ol type="1">
+        <li><b>Pilih Data:</b></li>
+        <ol type="a">
+            <li>Buat worksheet baru.</li>
+            <li>Drag and drop “Region” ke panel “Column” dan “Sales” ke “Rows”.</li>
+            <iframe src="https://drive.google.com/file/d/1YFXV_m9S66tS_UehyhO-8V_MBigIvjzU/preview" width="100%" height="300px" frame-border="0" alt="Visualisasi Kalkulasi_5"></iframe>
+        </ol>
+
+        <li><b>Buat LOD Calculation:</b></li>
+        <ol type="a">
+            <li>Pilih <b>Analysis</b> &gt; <b>Create Calculated Field</b>.</li>
+            <iframe src="https://drive.google.com/file/d/1FumuCng3vAZcsG6P_vhXvasmbSd2KgbM/preview" width="100%" height="300px" frame-border="0" alt="Visualisasi Kalkulasi_6"></iframe>
+
+            <li>Beri nama kalkulasi, misalnya "Sales Per Customer".</li>
+            <li>Masukkan ekspresi LOD: <font style="color: #4471C4;">{ INCLUDE [Customer Name] : SUM([Sales]) }</font>.</li>
+            <iframe src="https://drive.google.com/file/d/1Np3XPmwsxbeGQjrpF6QBQS9DATded8m6/preview" width="100%" height="300px" frame-border="0" alt="Visualisasi Kalkulasi_7"></iframe>
+
+            <li>Klik OK.</li>
+        </ol>
+        
+        <li><b>Tambahkan LOD Calculation ke Visualisasi:</b></li>
+        <ol type="a">
+            <li>Drag-and-drop <b>“Sales Per Customer”</b> ke panel <b>“Rows”</b>.</li>
+            <li>Pilih <b>“Measure (Sum)”</b> &gt; <b>“Average”</b>.</li>
+            <iframe src="https://drive.google.com/file/d/13e0qsg7-rlE2CiHv6y03vESEp_xicZqa/preview" width="100%" height="300px" frame-border="0" alt="Visualisasi Kalkulasi_8"></iframe>
+        </ol>
+
+    </ol>
+
+    <p>Untuk mempelajari cara LOD, pengguna dapat melihat video di bawah ini:</p>
+    <iframe src="https://drive.google.com/file/d/1RbWsGEUN1PUjZfedUBjbacnDjz7KiC3D/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+
+</div>

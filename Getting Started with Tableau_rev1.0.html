@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with Tableau</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="Judul">Getting Started with Tableau</h1>
+        </div>
+<style>
+    
+body{
+    background-color: #fff;
+}
+.container{
+    background-color: #fff;
+    padding-top: 3cm;
+    padding-left: 4cm;
+    padding-right: 3cm;
+    padding-bottom: 3cm;
+    max-width: 100%;
+    display: contents;
+}
+
+.container .header{
+    color: black;
+}
+
+.Judul{
+    font-size: 28pt;
+    text-align: left;
+    font-weight: bolder;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-family: Calibri, Arial, sans-serif;
+    max-width: 100%;
+}
+
+.content-box{
+    max-width: 100%;
+    min-width: 50%;
+    border: 2px solid #4471C4;
+    background-color: #fff;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 12pt;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 10px;
+    text-align: justify;
+}
+
+.content-box h2{
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    max-width: 100%;
+}
+
+.content-box ul{
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    max-width: 100%;
+}
+
+.content-box ul li{
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+
+.no-bullets{
+    list-style-type: none;
+    padding-left: 0;
+    max-width: 100%;
+}
+
+.no-bullets ul{
+    padding-left: 30px; /* Menambahkan indentasi untuk daftar bersarang */
+    max-width: 85%;
+}
+
+.note-box{
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #000;
+    background-color: #CFE1F3; /* Warna latar belakang seperti catatan */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    font-family: Calibri, Arial, sans-serif;
+    position: relative;
+}
+
+.note-box h2{
+    margin-top: 0;
+    max-width: fit-content;
+    font-size: 32px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+}
+
+.note-box p{
+    margin: 0;
+    max-width: fit-content;
+    font-size: 16px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+}
+/* Style for h1 */
+h1{
+    font-size: 20pt; /* Ukuran font 20 */
+    font-weight: bolder;
+    font-family: Calibri, Arial, sans-serif;
+    color: #1f2855;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    text-align: justify;
+    max-width: 100%;
+}
+/* Style for h2 */
+h2{
+    font-size: 14pt; /* Ukuran font 18 */
+    font-weight: bolder;
+    font-family: Calibri, Arial, sans-serif;
+    margin-top: 15px;
+    margin-right: 10px;
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    text-align: justify;
+    max-width: 100%;
+}
+/* Style for p */
+p{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    margin-right: 10px;
+    max-width: 100%;
+}
+/* Style for ul and ol */
+ul, ol{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    max-width: 90vw;
+}
+/* Style for li */
+li{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    margin-right: 10px;
+    max-width: 100%;
+}
+
+.small-text{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: center;
+    font-size: 10pt;
+}
+
+.Tools{
+    max-width: 85%;
+    height: auto;
+    display: block;
+    margin-left: 30%;
+    margin-top: 15pt;
+    margin-bottom: 15pt;
+}
+
+.Tipe{
+    max-width: 85%;
+    height: auto;
+    display: block;
+    margin-left: 0%;
+    margin-top: 15pt;
+    margin-bottom: 15pt;
+}
+
+iframe{
+    max-width: 100%;
+    min-height:auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+
+</style>
+        <div class="content-box"> <!-- Berisi Poin-poin Konten-->
+            <h2>
+                <img src="https://drive.google.com/thumbnail?id=1OSwy6Vn5jv8ERj5uV-d5abA8LFGNXV9x" alt="Content Image" style="vertical-align: middle; margin-right: 10px; max-width: 40px; max-height: 40px; padding-top: 10px;">Content
+            </h2>
+            <ul class="no-bullets">
+                <a href="#pengenalan-fiture-dasar-tableau" target="_blank">Pengenalan Fiture Dasar Tableau</a>
+                    <ul class="no-bullets">
+                        <li><a href="#definisi-tableau" target="_blank">Definisi Tableau</a></li>
+                        <li><a href="#fungsi-dan-manfaat" target="_blank">Fungsi dan Manfaat Tableau</a></li>
+                        <li><a href="#memulai-tableau" target="_blank">Memulai Tableau</a></li>
+                      <li><a href="#tableau-workspace" target="_blank">Tableau Workspace</a></li>
+                    </ul>
+                <a href="#tips-membuat-visualisasi" target="_blank">Tips Membuat Visualisasi Data dengan Tableau</a>
+                    <ul class="no-bullets">
+                        <li><a href="#poin-kunci" target="_blank">Poin Kunci Visualisasi Data</a></li>
+                        <li><a href="#penggunaan-hotkeys" target="_blank">Penggunaan Hotkeys Tableau</a></li>                   
+                    </ul>
+            </ul>
+
+        </div>
+
+        <div class="content-box">
+            <h1 id="pengenalan-fiture-dasar-tableau">Pengenalan Fiture Dasar Tableau</h1>
+            <h2 id="definisi-tableau">Definisi Tableau</h2>
+            <p>
+                <b>Tableau</b> adalah alat yang digunakan untuk membuat visualisasi data dalam bentuk dashboard, sehingga data menjadi lebih interaktif dan mudah dianalisis. 
+                Dengan Tableau, pengguna dapat membuat berbagai jenis visualisasi seperti <b>chart, map, dashboard, </b> dan <b>graph</b>. 
+                Tableau juga mendukung penggabungan dan pemadanan kumpulan data dari berbagai sumber. Fungsi utama Tableau meliputi <b>menghubungkan, mengeksplor, </b> dan <b>menganalisis data</b>, 
+                serta memungkinkan pengguna membuat <b>laporan, dashboard, </b> dan <b>storyboard</b>.
+            </p>
+            
+            <h2 id="fungsi-dan-manfaat">Fungsi dan Manfaat Tableau</h2>
+            <p>
+                <b>Tableau</b>, adalah perangkat lunak populer untuk visualisasi data dan analisis bisnis. Beberapa fungsi dan manfaat utamanya adalah:
+            </p>
+            <ul type="disc">
+                <li>
+                    <b>Visualisasi Data yang Menarik:</b> Tableau memfasilitasi pembuatan visualisasi data yang menarik dan interaktif, termasuk grafik, diagram, peta, dan dashboard. 
+                     Ini menyederhanakan data kompleks menjadi informasi yang lebih jelas.
+                </li>
+                <li>
+                    <b>Analisis Data yang Mendalam:</b> Tableau memfasilitasi analisis mendalam pada data, memungkinkan pengguna mengeksplorasi pola, tren, dan wawasan yang sulit diidentifikasi dari data mentah.
+                </li>
+                <li>
+                    <b>Dashboard Interaktif:</b> Tableau mendukung integrasi dengan berbagai sumber data seperti database, spreadsheet, dan data cloud.
+                </li>
+                <li>
+                    <b>Pemahaman yang Lebih Baik:</b> Visualisasi data yang baik membantu pengguna memahami konteks dan hubungan antar elemen data, mendukung pengambilan keputusan yang lebih baik.
+                </li>
+                <li>
+                    Tableau mempermudah proses pelaporan dengan memungkinkan pembuatan laporan yang profesional, pembaruan laporan otomatis, dan berbagi laporan dengan kolaborator atau pemangku kepentingan.
+                </li>
+            </ul>
+
+        <div class="note-box"> <!-- Notes Box -->
+                <h2>
+                    <img src="https://drive.google.com/thumbnail?id=1u0BdBLr-b-GNRs-OwQ11Ruv183nuTpvu" alt="Notes Image" style="vertical-align: top; margin-right: 10px; max-width: 30px; max-height: 30px; padding-top: 10px;">Notes
+                </h2>
+                <p>Dengan visualisasi data yang menarik dan analisis mendalam, Tableau membantu pengguna mendapatkan wawasan yang lebih baik dan membuat keputusan yang lebih informasional.</p>
+        </div>
+
+        <h1 id="memulai-tableau">Memulai Tableau</h1>
+        <h2 id="langkah-awal">Langkah Awal untuk Memulai Tableau</h2>
+        <ol type="1">
+            <li>
+                <p>
+                    <b>Unduh Tableau Desktop</b> melalui 
+                    <a href="https://www.tableau.com/en-gb/products/desktop/download" style="color: blue;" target="_blank">tautan ini</a>
+                </p>
+                <P>
+                    <iframe src="https://drive.google.com/file/d/1oz3sk6fg8Ju9fYB0Z9Jy1ms0OLslTA3d/preview" width="100%" height="250px" frame-border="0" alt="Download Tableau"></iframe>
+                </P>
+            </li>
+            <li>
+                <p>
+                    <b>Registrasi</b> dengan memasukkan data seperti:
+                </p>
+                    <ol type="a">
+                        <li>Nama awal (First name)</li>
+                        <li>Nama akhir (Last name)</li>
+                        <li>Email bisnis (Business email)</li>
+                        <li>Nama organisasi (Organization)</li>
+                        <li>Ukuran perusahaan (Company size)</li>
+                        <li>Departemen, dan seterusnya</li>
+                    </ol>
+                    <iframe src="https://drive.google.com/file/d/1mMxewbFB_6qs8Vc_8aR4hcR1pIEJVNIx/preview" width="100%" height="250px" frame-border="0" alt="Data Registrasi Tableau"></iframe>
+            </li>
+            <li>
+                <p> Setelah registrasi, Tableau Desktop akan otomatis terunduh dan lakukan <b>instalasi</b> dengan membaca ketentuan lisensi dan menyetujui syaratnya.</p>
+                <iframe src="https://drive.google.com/file/d/18NSBvaqDstYHbF3vuhVkfZPd3aiaEqlh/preview" width="100%" height="250px" frame-border="0" alt="License Agreement Tableau"></iframe>
+                <iframe src="https://drive.google.com/file/d/1u1Xt41hfYptIXZHl9V8aa24MRSyFa7P0/preview" width="100%" height="250px" frame-border="0" alt="Install Progress Tableau"></iframe>
+                <p>
+                    Untuk panduan instalasi lengkap, pengguna dapat melihat video di bawah ini:
+                </p>
+                <iframe src="https://drive.google.com/file/d/1gfQacR6UmUM17UrCuG9JaSUX3gM9g-Uw/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+            </li>
+            <li>
+                <p>
+                    Setelah instalasi selesai, Tableau Desktop akan terbuka. <b>Hubungkan</b> dengan data yang dimiliki:
+                    <ol type="a">
+                        <li>Koneksikan langsung dengan file di direktori.</li>
+                        <li>Koneksikan dengan server tempat data tersimpan.</li>
+                    </ol>
+                </p>
+                <iframe src="https://drive.google.com/file/d/1ufpgNP7gmCy4iocCwZJBmdw6-hZsVxcn/preview" width="100%" height="250px" frame-border="0" alt="File Directory & Server Tableau"></iframe>
+            </li>             
+        </ol>
+
+        <h1 id="tableau-workspace">Tableau Workspaces</h1>
+        <h2 id="penjelasan-terkait-tableau">Penjelasan terkait Tableau Workspace dan Fitur-fiturnya</h2>
+        <p>
+            <b>Tableau Workspace</b> adalah antarmuka di Tableau Desktop yang digunakan untuk membuat, mengedit, dan manganalisis visualisasi data. Beberapa bagian dari Tableau Workspace adalah:
+        </p>
+        <iframe src="https://drive.google.com/file/d/1uBtrWi4wVqO3cB4fu0RHvp5yT1dHVLLf/preview" width="100%" height="250px" frame-border="0" alt="Bagian Tableau Workspace"></iframe>
+
+        <p>
+            <ol type="1">
+                <li>
+                    <p>
+                        <b>Start Page:</b> Terdiri dari dua panel:
+                    <ol type="a">
+                        <li><b>Connect:</b> Menghubungkan ke sumber data.</li>
+                        <li><b>Open:</b> Membuka file atau proyek yang sudah dibuat.</li>
+                    </ol>
+                    </p>
+                    <iframe src="https://drive.google.com/file/d/1uRP8RIh_800oCjb5g4yNrm8ca8B2nbJR/preview" width="100%" height="250px" frame-border="0" alt="Start Page Tableau"></iframe>
+                </li>
+                <li>
+                    <p>
+                        <b>Data Panel:</b> Menampilkan sumber data dan bidang yang digunakan dalam tampilan, terdiri dari:
+                    </p>
+                    <p>
+                        <ol type="a">
+                            <li><b>Data Source Tab:</b> Menampilkan daftar sumber data yang tersedia.</li>
+                            <li><b>Data Tab:</b> Menampilkan daftar bidang yang tersedia dalam sumber data yang dipilih.</li>
+                        </ol>
+                    </p>
+                    <iframe src="https://drive.google.com/file/d/1b9hm_E5a3_k1LrQyBucjpUO9L-bYAF3j/preview" width="100%" height="250px" frame-border="0" alt="Data Panel Tableau"></iframe>
+                </li>
+                <li>
+                    <p>
+                        <b>Analytics Panel:</b> Menyediakan alat dan opsi analisis untuk diterapkan pada visualisasi data, seperti garis tren, regresi linear, dan perbandingan.
+                    </p>
+                    <iframe src="https://drive.google.com/file/d/1BVSWnh7A4pVBba6-1BMmETRGEG1pCkDj/preview" width="100%" height="250px" frame-border="0" alt="Analytics Panel"></iframe>
+                </li>
+                <li>
+                    <p>
+                        <b>Workbook Name:</b> Nama file untuk menyimpan proyek atau kumpulan visualisasi data.
+                    </p>
+                    <iframe src="https://drive.google.com/file/d/153XeWq1dlSsW6RJ5MU-FSAiYx_gAFm0o/preview" width="100%" height="250px" frame-border="0" alt="Workbook Name Tableau"></iframe>
+                </li>
+                <li>
+                    <p>
+                        <b>View Cards:</b> Mengelola elemen visualisasi data pada tampilan, termasuk:
+                    </p>
+                    <ol type="a">
+                        <li><b>Marks Card:</b> Menambahkan elemen visualisasi.</li>
+                        <li><b>Pages Card:</b> Membuat tampilan berbasis halaman.</li>
+                        <li><b>Filters Card:</b> Menambahkan filter ke tampilan.</li>
+                    </ol>
+                    <iframe src="https://drive.google.com/file/d/1Z5AgT3_ixOLYeMeLXKEc0_Hkk-6wdENn/preview" width="100%" height="250px" frame-border="0" alt="View Cards Tableau"></iframe>
+                </li>
+                <li>
+                    <p>
+                        <b>Toolbar Icon:</b> Serangkaian ikon di bagian atas antarmuka Tableau Desktop untuk akses cepat ke berbagai fungsi, seperti:
+                    </p>
+                    <ol type="a">
+                        <li><b>New Workbook:</b> Membuat workbook baru.</li>
+                        <li><b>Open:</b> Membuka workbook yang sudah ada.</li>
+                        <li><b>Save:</b> Menyimpan workbook yang sedang dibuat.</li>
+                        <li><b>Undo dan Redo:</b> Membatalkan atau mengulangi tindakan terakhir.</li>
+                        <li><b>Data Source:</b> Mengelola sumber data.</li>
+                        <li><b>Analytics:</b> Menambahkan elemen analitik.</li>
+                        <li><b>Server:</b> Mengakses Tableau Server.</li>
+                        <li><b>Help:</b> Akses panduan dan bantuan Tableau.</li>
+                    </ol>
+                    <iframe src="https://drive.google.com/file/d/1fnMeyhyppGO5Tc0tVhMpQsVV81yFoa4_/preview" width="100%" height="250px" frame-border="0" alt="Toolbar Icon Tableau"></iframe>
+                </li>
+                <li>
+                    <p>
+                        <b>Worksheet View:</b> Tampilan untuk membuat dan mengatur visualisasi data secara detail.
+                    </p>
+                    <iframe src="https://drive.google.com/file/d/13N9iJ6V1OGrvaJEwcuOpFcgpbNLTjUnx/preview" width="100%" height="250px" frame-border="0" alt="Worksheet View Tableau"></iframe>
+                </li>
+                <li>
+                    <p>
+                        <b>Data Source:</b> Sumber data yang digunakan untuk membuat visualisasi, mendukung berbagai jenis file seperti Excel, CSV, atau database.
+                    </p>
+                    <iframe src="https://drive.google.com/file/d/1PtUpQfTz0lUjAt1gFyVRX8PLIawWApsr/preview" width="100%" height="250px" frame-border="0" alt="Data Source Tableau"></iframe>
+                </li>
+                <li>
+                    <p>
+                        <b>Worksheet Tabs:</b> Tab dibagian bawah antarmuka untuk mengelola dan beralih antara worksheet yang berbeda.
+                    </p>
+                    <iframe src="https://drive.google.com/file/d/1QQvftYQCkj_-9biB3oj68LU7KQz3OoWr/preview" width="100%" height="250px" frame-border="0" alt="Worksheet Tabs Tableau"></iframe>
+                </li>
+                <li>
+                    <p>
+                        <b>Dashboard:</b> Tampilan yang terdiri dari beberapa visualisasi data yang disusun dalam satu halaman, memungkinkan analisis dan pelaporan yang lebih lengkap dan terpadu.
+                    </p>
+                    <iframe src="https://drive.google.com/file/d/1WyDRYKigMNlEjwi5Nm9-uVv31zrU4aLZ/preview" width="100%" height="250px" frame-border="0" alt="Dashboard Tableau"></iframe>
+                </li>
+            </ol>
+
+            <p>
+                Untuk mengeksplor fitur-fitur Tableau secara lebih mendalam, pengguna dapat melihat video di bawah ini:
+                <p><iframe src="https://drive.google.com/file/d/1ZT3Zn16rN7nQUWenve5f__7TheoVEPb2/preview" width="100%" height="400px" allow="autoplay; fullscreen"></iframe></p>
+            </p>
+
+        </p>
+
+        <div class="note-box">
+            <h2>
+                <img src="https://drive.google.com/thumbnail?id=1u0BdBLr-b-GNRs-OwQ11Ruv183nuTpvu" alt="Notes Image" style="vertical-align: top; margin-right: 10px; max-width: 30px; max-height: 30px; padding-top: 10px;">Notes
+            </h2>
+            <p>Tableau Workspace menyediakan antarmuka yang intuitif dan mudah digunakan, memudahkan pengguna dalam membuat dan menganalisis visualisasi data.</p>
+        </div>
+
+    <h1 id="tips-membuat-visualisasi">Tips Membuat Visualisasi Data dengan Tableau</h1>
+    <h2 id="poin-kunci">Poin Kunci Visualisasi Data</h2>
+    <p>
+        Poin-poin penting yang harus diperhatikan dalam membuat visualisasi data adalah:
+        <ol type="1">
+            <b>
+                <li>Mengetahui target audiens.</li>
+                <li>Memahami masalah atau pertanyaan dari target audiens.</li>
+                <li>Menyiapkan jawaban atau solusi yang akan divisualisasikan.</li>
+                <li>Membuat cerita yang ingin disampaikan kepada audiens.</li>
+            </b>
+        </ol>
+        <b>
+            <p>Memilih Diagram  dan Grafik yang Tepat</p>
+        </b>
+        <p>
+        Dalam membangun visualisasi, penting untuk memilih jenis chart, grafik, atau bentuk visual lainnya yang tepat. Hal ini bertujuan supaya informasi dari analisis data dapat tersampaikan dengan baik. 
+        Pertimbangkan tujuan visualisasi, apakah untuk comparison, relationship, composition, atau distribution.
+        </p>
+    <ol type="1">
+        <li>
+            <b>Comparison:</b> Membandingkan nilai antara variabel, dapat menggunakan bar chart, line chart, dan combo chart.
+        </li>
+        <li>
+            <b>Relationship:</b> Menunjukkan hubungan antar variabel, dapat menggunakan scatterplot dan bubble chart.
+        </li>
+        <li>
+            <b>Composition:</b> Menunjukkan komposisi nilai terhadap total, dapat menggunakan pie chart, tree maps, dan waterfall chart.
+        </li>
+        <li>
+            <b>Distribution:</b> Menunjukkan bagaimana nilai dalam data dikelompokkan, dapat menggunakan histogram dan box plot.
+        </li>
+    </ol>
+    </p>
+
+    <div class="note-box">
+        <h2>
+            <img src="https://drive.google.com/thumbnail?id=1u0BdBLr-b-GNRs-OwQ11Ruv183nuTpvu" alt="Notes Image" style="top: bottom; margin-right: 10px; max-width: 30px; max-height: 30px; padding-top: 10px;">Notes
+        </h2>
+        <p>Menjawab Pertanyaan seperti “Apa yang ingin ditunjukkan?” dapat membantu memilih jenis diagram yang tepat.</p>
+    </div>
+
+    <p>
+        <b>Menyampaikan Makna Data Secara Cepat Menggunakan Isyarat Warna</b>
+    </p>
+
+    <p>
+        Penggunaan warna intuitif dapat mempercepat pemahaman audiens. Misalnya, gunakan warna biru untuk dingin dan warna merah untuk panas. Hindari penggunaan font dan warna default dari tool visualisasi daya yang diguanakan.
+    </p>
+
+    <h1 id="penggunaan-hotkeys">Penggunaan Hotkeys Tableau</h1>
+    <p>
+        <b>Hotkeys</b> atau tombol pintas dapat mempermudah dan mempercepat pembuatan visualisasi data di Tableau. Beberapa hotkeys yang berguna adalah:
+        <ol type="1">
+            <li>
+                <b>Ctrl + A:</b> Select All.
+            </li>
+            <li>
+                <b>Ctrl + C:</b> Copy.
+            </li>
+            <li>
+                <b>Ctrl + D:</b> Menghubungkan dengan dataset baru.
+            </li>
+            <li>
+                <b>Ctrl + E:</b> Menampilkan deskripsi sheet.
+            </li>
+            <li>
+                <b>Ctrl + F:</b> Mencari data dalam Tables.
+            </li>
+            <li>
+                <b>Ctrl + H:</b> Mode presentasi atau full screen.
+            </li>
+            <li>
+                <b>Ctrl + W:</b> Menukar fields pada baris dan kolom.
+            </li>
+            <li>
+                <b>Ctrl + 1:</b> Menampilkan bentuk visualisasi (Show Me).
+            </li>
+            <li>
+                <b>Alt + Shift + C:</b> Meletakkan field yang dipilih pada Columns.
+            </li>
+            <li>
+                <b>Alt + Shift + F:</b> Meletakkan field yang dipilih pada Filters.
+            </li>
+            <li>
+                <b>Alt + Shift + L:</b> Meletakkan field yang dipilih pada Detail.
+            </li>
+            <li>
+                <b>Alt + Shift + O:</b> Meletakkan field yang dipilih pada Color.
+            </li>
+            <li>
+                <b>Alt + Shift + P:</b> Meletakkan field yang dipilih pada Pages.
+            </li>
+            <li>
+                <b>Alt + Shift + R:</b> Meletakkan field yang dipilih pada Rows.
+            </li>
+            <li>
+                <b>Alt + Shift + T:</b> Meletakkan field yang dipilih pada Text.
+            </li>
+            <li>
+                <b>Ctrl + Left Click:</b> Memilih lebih dari satu field pada Tables.
+            </li>
+            <li>
+                <b>Shift + Left Click:</b> Memilih seluruh field yang dipilih pertama dan terakhir pada Tables.
+            </li>
+        </ol>
+    </p>
+
+    <div class="note-box">
+        <h2>
+            <img src="https://drive.google.com/thumbnail?id=1u0BdBLr-b-GNRs-OwQ11Ruv183nuTpvu" alt="Notes Image" style="vertical-align: top; margin-right: 10px; max-width: 30px; max-height: 30px; padding-top: 10px;">Notes
+        </h2>
+        <p>Menggunakan hotkeys dapat mempercepat pekerjaan dan meningkatkan efisiensi dalam menggunakan Tableau.</p>
+    </div>
+
+
+    </div>
+</body>
+</html>

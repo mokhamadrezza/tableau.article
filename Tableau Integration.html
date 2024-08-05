@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau Integration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="Judul">Tableau Integration</h1>
+        </div>
+<style>
+    
+body{
+    background-color: #fff;
+}
+.container{
+    background-color: #fff;
+    padding-top: 3cm;
+    padding-left: 4cm;
+    padding-right: 3cm;
+    padding-bottom: 3cm;
+    max-width: 100%;
+    display: contents;
+}
+
+.container .header{
+    color: black;
+}
+
+.Judul{
+    font-size: 28pt;
+    text-align: left;
+    font-weight: bolder;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-family: Calibri, Arial, sans-serif;
+    max-width: 100%;
+}
+
+.content-box{
+    max-width: 100%;
+    min-width: 50%;
+    border: 2px solid #4471C4;
+    background-color: #fff;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 12pt;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 10px;
+    text-align: justify;
+}
+
+.content-box h2{
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    max-width: 100%;
+}
+
+.content-box ul{
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    max-width: 100%;
+}
+
+.content-box ul li{
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+
+.no-bullets{
+    list-style-type: none;
+    padding-left: 0;
+    max-width: 100%;
+}
+
+.no-bullets ul{
+    padding-left: 30px; /* Menambahkan indentasi untuk daftar bersarang */
+    max-width: 100%;
+}
+
+.note-box{
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #000;
+    background-color: #CFE1F3; /* Warna latar belakang seperti catatan */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    font-family: Calibri, Arial, sans-serif;
+    position: relative;
+}
+
+.note-box h2{
+    margin-top: 0;
+    max-width: fit-content;
+    font-size: 26px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+}
+
+.note-box p{
+    margin: 0;
+    max-width: fit-content;
+    font-size: 18px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+}
+/* Style for h1 */
+h1{
+    font-size: 20pt; /* Ukuran font 20 */
+    font-weight: bolder;
+    font-family: Calibri, Arial, sans-serif;
+    color: #1f2855;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    text-align: justify;
+    max-width: 100%;
+}
+/* Style for h2 */
+h2{
+    font-size: 14pt; /* Ukuran font 18 */
+    font-weight: bolder;
+    font-family: Calibri, Arial, sans-serif;
+    margin-top: 15px;
+    margin-right: 10px;
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    text-align: justify;
+    max-width: 100%;
+}
+/*Style for h3 */
+h3 {
+    font-size: 12pt;
+    font-weight: bold;
+    font-family: calibri, Arial, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    line-height: 1.5; /*Jarak spasi 1/5 */
+    text-align: justify;
+    max-width: 100%;
+
+}
+/* Style for p */
+p{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    margin-right: 10px;
+    max-width: 100%;
+}
+/* Style for ul and ol */
+ul, ol{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    max-width: 90vw;
+}
+/* Style for li */
+li{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: justify;
+    margin-right: 10px;
+    max-width: 100%;
+}
+
+.small-text{
+    line-height: 1.5; /* Jarak spasi 1.5 */
+    font-family: Calibri, Arial, sans-serif;
+    text-align: center;
+    font-size: 10pt;
+}
+
+.Tools{
+    max-width: 85%;
+    height: auto;
+    display: block;
+    margin-left: 30%;
+    margin-top: 15pt;
+    margin-bottom: 15pt;
+}
+
+.Tipe{
+    max-width: 85%;
+    height: auto;
+    display: block;
+    margin-left: 0%;
+    margin-top: 15pt;
+    margin-bottom: 15pt;
+}
+
+iframe{
+    max-width: 100%;
+    min-height:auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 10px;
+}
+th {
+    background-color: #2796a3;
+    color: white;
+    text-align: center;
+}
+td {
+    text-align: left;
+}
+tr:hover {
+    background-color: beige;
+}
+
+font {
+    max-width: 100%;
+}
+
+</style>
+
+<div class="content-box"> <!-- Berisi Poin-poin Konten-->
+    <h2>
+        <img src="https://drive.google.com/thumbnail?id=1OSwy6Vn5jv8ERj5uV-d5abA8LFGNXV9x" alt="Content Image" style="vertical-align: middle; margin-right: 10px; max-width: 40px; max-height: 40px; padding-top: 10px;">Content
+    </h2>
+    <ul class="no-bullets">
+        <a href="#integrasi-dengan-python" target="_blank">Integrasi dengan Python</a>
+        <ul class="no-bullets">
+            <li>
+                <a href="#tableau-integration" target="_blank">Tableau Integration Feature</a>
+            </li>
+            <li>
+                <a href="#mengenal-python" target="_blank">Mengenal Python</a>
+            </li>
+            <li>
+                <a href="#integration_python" target="_blank">Tableau Integration with Python</a>
+            </li>
+            <li>
+                <a href="python-pada-tableau" target="_blank">Langkah-Langkah Integrasi Python pada Tableau</a>
+            </li>      
+        </ul>
+    
+        <a href="#integrasi-dengan-r" target="_blank">Integrasi dengan R</a>
+        <ul class="no-bullets">
+            <li>
+                <a href="#mengenal-r" target="_blank">Mengenal R (Programming Language)</a>
+            </li>
+            <li>
+                <a href="#integration-r" target="_blank">Tableau Integration with R</a>
+            </li>
+            <li>
+                <a href="#r-pada-tableau" target="_blank">Langkah-Langkah Integrasi R pada Tableau</a>
+            </li>
+        </ul>            
+
+    </ul>
+    
+</div>
+
+<div class="content-box">
+    <h1 id="integrasi-dengan-python">Integrasi dengan Python</h1>
+    <h2 id="tableau-integration">Tableau Integration Feature</h2>
+    <p>
+        Tableau Integration Feature adalah fitur yang memungkinkan Tableau untuk terhubung dan terintegrasi dengan aplikasi, bahasa pemrograman, database, dan file lainnya (Tableau n.d). 
+        Fitur ini menyediakan konektivitas, integrasi, dan ekstensibilitas yang fleksibel bagi pengguna Tableau. Fitur integrasi Tableau mengacu pada kemampuan perangkat lunak Tableau untuk terhubung dan berinteraksi pada:
+    </p>
+
+    <ul>
+        <li><b>Local Database</b></li>
+        <li><b>Remote Database</b></li>
+        <li><b>Spreadsheet</b></li>
+        <li><b>Text File</b></li>
+        <li><b>Aplikasi Cloud</b></li>
+        <li><b>Bahasa pemrograman (untuk komputasi dan analisis)</b></li>
+        <li><b>Kueri SQL</b></li>
+    </ul>
+
+    <h2 id="mengenal-python">Mengenal Python</h2>
+    <p>
+        Python merupakan salah satu bahasa pemrograman yang banyak digunakan oleh perusahaan besar maupun para developer untuk mengembangkan berbagai macam aplikasi berbasis desktop, web, dan mobile (Romzi & Kurniawan 2020). 
+        Python diciptakan oleh Guido van Rossum di Belanda pada tahun 1990 dan namanya diambil dari acara televisi kesukaan Guido, Monty Python&apos;s Flying Circus.
+    </p>
+    <p>
+        Python adalah bahasa pemrograman tingkat tinggi yang dirancang untuk tujuan umum seperti dalam <b>pengembangan web, automasi, software testing, analisis data, machine learning, dan pengembangan game</b>. 
+        Bahasa pemrograman ini memiliki filosofi desain yang menekankan keterbacaan kode dengan penggunaan indentasi yang signifikan.
+    </p>
+
+    <h2 id="integration_python">Tableau Integration with Python</h2>
+    <p>
+        Integrasi Python pada Tableau memungkinkan pengguna Tableau untuk mengeksekusi kode Python dan fungsi yang disimpan di dalamnya. Hal ini memungkinkan pengguna untuk memanfaatkan kekuatan Python dalam analisis data dan visualisasi data di dalam Tableau. 
+        Integrasi Python pada Tableau dapat dilakukan dengan menggunakan <b>TabPy Server</b>.
+    </p>
+    <p>
+        <b>TabPy Server</b> adalah server Python yang dapat diakses dari Tableau. Pengguna dapat mengeksekusi kode Python dan fungsi yang disimpan di dalamnya melalui TabPy Server (Bima Putra, 2020).
+    </p>
+
+    <p>
+        <div class="note-box"> <!-- Notes Box -->
+            <h2>
+                <img src="https://drive.google.com/thumbnail?id=1u0BdBLr-b-GNRs-OwQ11Ruv183nuTpvu" alt="Notes Image" style="vertical-align: top; margin-right: 10px; max-width: 30px; max-height: 30px; padding-top: 5px;">Notes
+            </h2>
+            <p>
+                Dalam integrasi Python pada Tableau, pengguna harus menginstal Python dan memastikan bahwa Python dapat diakses dari Tableau. 
+                Selain itu, pengguna juga harus memastikan bahwa kode Python dan fungsi yang disimpan di dalamnya dapat diakses dari Tableau.
+        </div>
+    </p>
+
+    <h2 id="python-pada-tableau">Langkah-langkah Integrasi Python pada Tableau (Windows):</h2>
+    <ol type="1">
+        <li><b>Instal Python:</b></li>
+        <p>
+            Jika belum terinstal, buka laman
+                <a href="https://www.python.org/" target="_blank">
+                    <font style="color: #4471C4;">
+                        <u>https://www.python.org</u>
+                    </font>
+                </a> 
+        </p>
+        <iframe src="https://drive.google.com/file/d/185wuzC3BzBYUMOvIUrXsbgoWBfLYVhzX/preview" width="100%" height="300px" frame-border="0" alt="Integrasi Python_1"></iframe>
+
+        <li><b>Instalasi Python:</b></li>
+        <ol type="a">
+            <li>Buka file instalasi Python yang telah terunduh, lalu checklist <b>“Add Python [version] to PATH”</b>.</li>
+            <li>Pilih <b>"Install Now"</b> dan tunggu hingga proses instalasi selesai.</li>
+            <iframe src="https://drive.google.com/file/d/1XactFhK_0VtZHGPeohi5C-6Nr8jjF9eN/preview" width="100%" height="300px" frame-border="0" alt="Integrasi Python_2"></iframe>
+        </ol>
+
+        <li><b>Verifikasi Instalasi Python:</b></li>
+        <ol type="a">
+            <li>Tekan <b>Windows+R</b> pada keyboard.</li>
+            <li>Ketik <b>“cmd”</b> dan pilih OK untuk membuka “Command Prompt”.</li>
+            <iframe src="https://drive.google.com/file/d/1SVlLDA33OGPYFLY9-DWxK7d_aDPYn2mL/preview" width="100%" height="300px" frame-border="0" alt="Integrasi Python_3"></iframe>
+
+            <li>Pada “Command Prompt” ketik <b>“python --version”</b> dan tekan enter untuk melihat versi Python yang terinstal.</li>
+            <iframe src="https://drive.google.com/file/d/1n01PGOLGe3p8CCjx-dXGByFH49HbibJx/preview" width="100%" height="300px" frame-border="0" alt="Integrasi Python_4"></iframe>
+        </ol>
+
+        <li><b>Install TabPy Server:</b></li>
+        <ol type="a">
+            <li>Pada Command Prompt, ketik <b>“pip install tabpy-server”</b> dan tekan enter.</li>
+            <li>Tunggu proses instalasi modul TabPy Server selesai.</li>
+            <iframe src="https://drive.google.com/file/d/1Grg73oLSdLfJXG6CLXudxRSlD5R6rP5M/preview" width="100%" height="300px" frame-border="0" alt="Integrasi Python_5"></iframe>
+        </ol>
+
+        <li><b>Konfigurasi TabPy Server:</b></li>
+        <ol type="a">
+            <li text-align="left">
+                Ganti direktori di Command Prompt dengan mengetik
+                <p>
+                    <font style="color: tomato;"><b>“cd C:\Users\[nama user]\AppData\Local\Programs\Python\Python[versi terinstal]\Lib\site-packages\tabpy_server”</b>
+                    </font></p>
+            </li>
+            <li>Buka file <b>“startup.bat”</b> untuk mengkonfigurasikan Python pada Tableau untuk pertama kalinya.</li>
+            <li>Ketikkan <b>“y”</b> untuk memulai TabPy.</li>
+            <iframe src="https://drive.google.com/file/d/1zZKYf83fs_sW7mWSwnEpnX_rBWm96waD/preview" width="100%" height="300px" frame-border="0" alt="Integrasi Python_6"></iframe>
+        </ol>
+
+        <li><b>Integrasi dengan Tableau:</b></li>
+        <ol type="a">
+            <li>Buka Tableau dan masukkan data <b>Global Superstore</b> pada sheet Order.</li>
+            <li>Pada menu <b>Help</b> &gt; <b>Setting and Performance</b> &gt; pilih <b>TabPy</b>.</li>
+            <li>Pada window <b>Manage Analytics Extension Connection</b>, masukkan <b>“localhost”</b> pada Hostname dan <b>9004</b> pada port, lalu pilih <b>Save</b>.</li>
+            <iframe src="https://drive.google.com/file/d/1MMzGZM0dyi5l3qv4lqqSPGquBbbASjXP/preview" width="100%" height="300px" frame-border="0" alt="Integrasi Python_7"></iframe>
+
+            <li>Klik <b>“Test Connection”</b> untuk memastikan koneksi berhasil.</li>
+            <iframe src="https://drive.google.com/file/d/1hX1n-UfCHgqKmSKRYPHLvuGQJnixsCLC/preview" width="100%" height="300px" frame-border="0" alt="Integrasi Python_8"></iframe>
+        </ol>
+
+        <li><b>Verifikasi Integrasi:</b></li>
+        <ol type="a">
+            <li>Pilih <b>Analysis</b> &gt; <b>Create Calculated Field</b>.</li>
+            <li>Masukkan nama <b>“Profitable”</b> lalu masukkan sintaks berikut:</li>
+            <p><font style="color: green;">SCRIPT_BOOL&lpar;"</font></p>
+            <p><font style="color: green;">Mylist = []</font></p>
+            <p><font style="color: green;">for x in _arg1:</font></p>
+            <ul class="no-bullets">
+                <font style="color: green;">Mylist.append(x > 0)</font>
+            </ul>
+            <p><font style="color: green;">return Mylist"</font></p>
+            <p><font style="color: green;">, SUM([Profit]))</font></p>
+
+            <iframe src="https://drive.google.com/file/d/1hXXagacUNGybGh8HOdMeP4xec2p6tMOn/preview" width="100%" height="300px" frame-border="0" alt="Integrasi Python_9"></iframe>
+
+            <p>Sehingga akan terbentuk satu variabel baru yaitu <b>Profitable</b>.</p>
+            <iframe src="https://drive.google.com/file/d/1gPy4oQIISO7zZDeRpAKbAfK3qv1ZN7qf/preview" width="100%" height="300px" frame-border="0" alt="Integrasi Python_10"></iframe>
+        </ol>
+
+        <p>Untuk panduan langkah-langkah integrasi Python pada Tableau secara lengkap, pengguna dapat melihat video di bawah ini:</p>
+        <iframe src="https://drive.google.com/file/d/1mzCYI5owmDXU1hr4MO0nox-h5gfBL9qY/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+        
+    </ol>
+
+    <h1 id="integrasi-dengan-r">Integrasi dengan R</h1>
+    <h2 id="mengenal-r">Mengenal R (Programming Language)</h2>
+    <p>
+        R adalah software program yang berada di bawah GPL (General Public License), yang artinya software ini dapat digunakan secara bebas atau tidak perlu membayar lisensi untuk menggunakannya (Fauzan, Mahara & Sulistyo 2020). 
+        Program R adalah sistem yang digunakan untuk analisis statistika dan relatif lengkap. R memiliki sintaks yang mirip dengan bahasa pemrograman S dan menyediakan lingkungan perangkat lunak yang lengkap untuk analisis data statistik.
+    </p>
+    <p>
+        R mendukung analisis dan visualisasi data yang interaktif, termasuk grafik 2D dan 3D, dan animasi. Sebagai contoh dalam analisis perilaku pasar, forecasting, dan topic modelling. 
+        R juga dapat diintegrasikan dengan aplikasi lain, seperti Tableau, untuk memperluas kemampuan analisis data dan visualisasi data.
+    </p>
+
+    <h2 id="integration-r">Tableau Integration with R</h2>
+    <p>
+        Integrasi R pada Tableau memungkinkan pengguna Tableau untuk mengeksekusi kode R dan fungsi yang disimpan di dalamnya. Hal ini memungkinkan pengguna untuk memanfaatkan kekuatan R dalam analisis data dan visualisasi data di dalam Tableau. 
+        Integrasi R dengan Tableau dapat dilakukan dengan membutuhkan paket eksternal yaitu Rserve.
+    </p>
+    <p>
+        <b>Rserve</b> adalah paket R yang memungkinkan pengguna untuk menghubungkan R dengan aplikasi lain, termasuk Tableau. Rserve memungkinkan pengguna untuk mengeksekusi kode R dan fungsi yang disimpan di dalamnya melalui Tableau (Samuel 2022).
+    </p>
+
+    <p>
+        <div class="note-box"> <!-- Notes Box -->
+            <h2>
+                <img src="https://drive.google.com/thumbnail?id=1u0BdBLr-b-GNRs-OwQ11Ruv183nuTpvu" alt="Notes Image" style="vertical-align: top; margin-right: 10px; max-width: 30px; max-height: 30px; padding-top: 5px;">Notes
+            </h2>
+            <p>
+                Dalam integrasi R pada Tableau, pengguna harus menginstal dan memastikan bahwa R dapat diakses dari Tableau. Selain itu, pengguna juga harus memastikan bahwa kode R dan fungsi yang disimpan di dalamnya dapat diakses dari Tableau.
+        </div>
+    </p>
+
+    <h2 id="r-pada-tableau">Langkah &minus; Langkah Integrasi R pada Tableau</h2>
+    <ol type="1">
+        <li><b>Install R:</b></li>
+        <p>
+            Jika belum terinstal, buka laman 
+                <a href="https://cran.r-project.org/" target="_blank">
+                    <font style="color: #4471C4;"><u>https://cran.r-project.org/</u></font>
+                </a> dan download versi terbaru.
+        </p>
+        <iframe src="https://drive.google.com/file/d/1U9No4kJ9kkGVqW-xEEUYWTnuj8MIMAA_/preview" width="100%" height="300px" frame-border="0" alt="Integrasi R_1"></iframe>
+
+        <li><b>Instalasi R:</b></li>
+        <ol type="a">
+            <li>Buka file instalasi yang telah terunduh dan pilih bahasa yang akan digunakan untuk proses instalasi.</li>
+            <iframe src="https://drive.google.com/file/d/1lX9yghPMG2SAcZizS8bWDJbPxljE6VhD/preview" width="100%" height="300px" frame-border="0" alt="Integrasi R_2"></iframe>
+            
+            <li>Lanjutkan proses instalasi dan tunggu hingga selesai.</li>
+            <iframe src="https://drive.google.com/file/d/1nM76nFqfNx-OyzixeYse2oEjzWCm-GjX/preview" width="100%" height="300px" frame-border="0" alt="Integrasi R_3"></iframe>
+        </ol>
+
+        <li><b>Install Rserve:</b></li>
+        <ol type="a">
+            <li>Buka program R versi terbaru.</li>
+            <iframe src="https://drive.google.com/file/d/1dYLPbAtsnTOPMLPfYGqx3vS7fg5GZSeW/preview" width="100%" height="300px" frame-border="0" alt="Integrasi R_4"></iframe>
+
+            <li>Ketik <b>“install.packages(“Rserve”)”</b> pada command line dan tekan enter.</li>
+            <iframe src="https://drive.google.com/file/d/1j4H-eaqH8gusMcOmZ3vlMdkaV0CL68uZ/preview" width="100%" height="300px" frame-border="0" alt="Integrasi R_5"></iframe>
+
+            <li>Pilih <b>CRAN mirrors “0-Cloud [https]”</b> untuk memilih default server CRAN tempat mendownload paket.</li>
+            <iframe src="https://drive.google.com/file/d/19wSC-6oHWn2ftbYxJE39TphcLTSeX3NK/preview" width="100%" height="300px" frame-border="0" alt="Integrasi R_6"></iframe>
+        </ol>
+
+        <li><b>Panggil dan Jalankan Rserve:</b></li>
+        <ol type="a">
+            <li>Ketik <b>“library(Rserve)”</b> lalu tekan enter.</li>
+            <li>Jalankan Rserve dengan mengetik <b>“Rserve()”</b> dan tekan enter.</li>
+            <iframe src="https://drive.google.com/file/d/1fNWIXSHCdhBz0JGcTYecJYyQ0ub8-jGK/preview" width="100%" height="300px" frame-border="0" alt="Integrasi R_7"></iframe>
+        </ol>
+
+        <li><b>Integrasi dengan Tableau:</b></li>
+        <ol type="a">
+            <li>Buka Tableau dan masukkan data <b>Global Superstore</b> pada sheet Order.</li>
+            <li>Pada menu <b>Help</b> &gt; <b>Setting and Performance</b> &gt; pilih <b>Rserve</b>.</li>
+            <li>Pada window <b>Manage Analytics Extension Connection</b>, masukkan <b>“localhost”</b> pada Hostname dan <b>6311</b> pada port, lalu pilih <b>Save</b>.</li>
+            <iframe src="https://drive.google.com/file/d/1nEO9WmTGKHJrTEbUxi_lWcP8ZjlWD3kW/preview" width="100%" height="300px" frame-border="0" alt="Integrasi R_8"></iframe>
+
+            <li>Klik <b>“Test Connection”</b> untuk memastikan koneksi berhasil.</li>
+            <iframe src="https://drive.google.com/file/d/12-cx7yYfNSdjEjACc8IoOjh7SA7FKGdO/preview" width="100%" height="150px" frame-border="0" alt="Integrasi R_9"></iframe>
+        </ol>
+
+        <li><b>Verifikasi Integrasi:</b></li>
+        <ol type="a">
+            <li>Pilih <b>Analysis</b> &gt; <b>Create Calculated Field</b>.</li>
+            <li>Masukkan nama <b>“Profitable”</b> lalu masukkan sintaks berikut:</li>
+
+            <p><font style="color: green;">SCRIPT_BOOL&lpar;"</font></p>
+            <p><font style="color: green;">Mylist &larr; list()</font></p>
+            <p><font style="color: green;">for (x in _arg1) &#123</font></p>
+            <ul class="no-bullets">
+                <font style="color: green;">Mylist &larr; append(Mylist, list(x > 0))&#123</font>
+            </ul>
+            <p><font style="color: green;">return(Mylist)"</font></p>
+            <p><font style="color: green;">, SUM([Profit])&rpar;</font></p>
+
+            <iframe src="https://drive.google.com/file/d/1OGD78lHlr9erIoMyQkbYl9IYVyIYxgKM/preview" width="100%" height="300px" frame-border="0" alt="Integrasi R_10"></iframe>
+
+            <p>Sehingga akan terbentuk satu variabel baru yaitu <b>Profitable</b>.</p>
+            <iframe src="https://drive.google.com/file/d/11exfGFMlKu8VaA3pbhRhWqb6NGcWdMAo/preview" width="100%" height="300px" frame-border="0" alt="Integrasi R_11"></iframe>
+        </ol>
+
+        <p>Untuk panduan langkah-langkah integrasi Python pada Tableau secara lengkap, pengguna dapat melihat video di bawah ini:</p>
+        <iframe src="https://drive.google.com/file/d/1Nj17s2YdUezX-L3cjcqlBIGaitDPV5G0/preview" width="100%" height="400px" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+    </ol>
+
+    <p>
+        <div class="note-box"> <!-- Notes Box -->
+            <h2>
+                <img src="https://drive.google.com/thumbnail?id=1u0BdBLr-b-GNRs-OwQ11Ruv183nuTpvu" alt="Notes Image" style="vertical-align: top; margin-right: 10px; max-width: 30px; max-height: 30px; padding-top: 5px;">Notes
+            </h2>
+            <p>
+                Jika mengalami kendala saat instalasi atau integrasi, cek dokumentasi resmi di 
+                <a href="https://www.python.org/" target="_blank">
+                    <font style="color: #4471C4;"><u>https://www.python.org/</u></font>
+                </a> 
+                    dan 
+                    <a href="https://tableau.github.io/TabPy/docs/server-install.html" target="_blank">
+                        <font style="color: #4471C4;"><u>https://tableau.github.io/TabPy/docs/server-install.html</u></font>
+                    </a> 
+                    untuk Python, serta 
+                    <a href="https://cran.r-project.org/" target="_blank">
+                        <font style="color: #4471C4;"><u>https://cran.r-project.org/</u></font>
+                    </a> untuk R.
+        </div>
+    </p>
+
+</div>
